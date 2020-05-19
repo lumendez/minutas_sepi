@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MinutasSepi</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body data-spy="scroll" data-target="#menu-manual" data-offset="120">
+    <header class="d-none d-md-block">
+      <nav class="navbar fixed-top" role="navigation" id="barraGobmx">
+        <div class="container u-noPaddingContainer">
+          <a class="navbar-brand" style="padding-left: 8px;" href="https://www.gob.mx/">
+            <%= image_tag "gobmxlogo.svg", alt:"Página de inicio, Gobierno de México", height:29 %>
+          </a>
+          <div class="text-rigth barraGobmx-enlaces">
+            <a href="https://www.gob.mx/tramites" title="Trámites" class="nav-link">
+              Trámites
+            </a>
+            <a href="https://www.gob.mx/gobierno" title="Gobierno" class="nav-link">
+              Gobierno
+            </a>
+            <a href="https://www.gob.mx/participa" title="Participación Ciudadana" class="nav-link">
+              Participa
+            </a>
+            <a href="https://datos.gob.mx" title="Datos Abiertos" class="nav-link">
+              Datos
+            </a>
+            <a href="https://www.gob.mx/busqueda">
+              <span class="sr-only nav-link" class="">Búsqueda</span><i class="fas fa-search"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Encabezado principal -->
+    <div class="u-noPaddingContainer contenedorGobierno">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-12">
+            <div class="d-inline-block ipnLogo-enlace">
+              <%= image_tag "pleca-gob.png", alt:"", class:"plecaGob gob" %>
+                <a href="https://www.ipn.mx" class="">
+                  <%= image_tag "pleca-ipn.png", alt:"", class:"plecaGob" %>
+                    <p class="d-inline-block tituloLogo">
+                      Instituto Politécnico Nacional <br>
+                      <span class="sm">"La Técnica al Servicio de la Patria"</span>
+                    </p>
+                </a>
+            </div>
+          </div>
+        </div>
+        <div class="utileriasIpn">
+          <ul class="barra-enlaces">
+            <li>
+              <a href="https://www.ipn.mx/directorio.html">DIRECTORIO</a> |
+            </li>
+            <li>
+              <a href="https://www.ipn.mx/correo-electronico.html">CORREO ELECTRÓNICO</a> |
+            </li>
+            <li>
+              <a href="https://www.ipn.mx/calendario-academico.html">CALENDARIO</a> |
+            </li>
+            <li>
+              <a href="https://www.ipn.mx/buzon.html">BUZÓN</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Menú principal -->
+    <nav class="navbar navbar-expand-xl navbar-dark d-block d-xl-flex justify-content-center" id="menu-principal">
+      <div class="u-noPaddingContainer">
+        <!-- Banderin -->
+        <p class="nav-link banderin u-oculto">
+          <img src="" alt="" class="banderin-img">
+        </p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menú principal
+        </button>
+        <div class="collapse navbar-collapse d-xl-flex justify-content-md-around" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--Nombre Escuela-->
+    <div class="nombreEscuela-contenedor nombreEscuela-contenedor--negro">
+        <div class="container u-noPaddingContainer text-center">
+            <p class="nombreUr-titulo">Sistema de Minutas de la Sección de Estudios de Posgrado e Investigación</p>
+        </div>
+    </div>
+    <div class="bg--blanco">
+      <div class="container">
+        <div id="flash">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+    <!-- Pie de página -->
+    <footer class="piePagina">
+    <!-- Aviso IPN -->
+      <div class="bg--guinda">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 pl-7 piePagina-texto">
+              <h3 class="text-center piePagina-titulo">INSTITUTO POLITÉCNICO NACIONAL</h3>
+              <p>
+                D.R. Instituto Politécnico Nacional (IPN). Av. Luis Enrique Erro S/N, Unidad Profesional Adolfo López Mateos, Zacatenco, Alcaldía Gustavo A. Madero, C.P. 07738, Ciudad de México 2009-2013.
+              </p>
+              <br>
+              <p>
+                Esta página es una obra intelectual protegida por la Ley Federal del Derecho de Autor, puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica; su uso para otros fines, requiere autorización previa y por escrito de la Dirección General del Instituto.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 pl-7">
+              <%= image_tag "educacion2.png", alt:"", class:"EducacionplecaGob gob" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Boton para regresar al inicio de la pagina -->
+      <span id="top-contenedor">
+        <a href="#" class="top-link" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+          <i class="fas fa-chevron-up"></i>
+        </a>
+      </span>
+    </footer>
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+  </body>
+</html>
