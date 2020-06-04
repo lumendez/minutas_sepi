@@ -83,6 +83,9 @@
         </button>
         <div class="collapse navbar-collapse d-xl-flex justify-content-md-around" id="navbarSupportedContent">
           <ul class="navbar-nav">
+            <% if user_signed_in? && current_user.tipo_usuario.nombre == 'Usuario' %>
+              <%= render 'layouts/menu_usuario' %>
+            <% end %>
           </ul>
         </div>
       </div>
