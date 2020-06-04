@@ -61,6 +61,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def panel_usuario
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -69,6 +72,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:nombre, :primer_apellido, :segundo_apellido, :curp, :tipo_usuario_id, :alumno_id)
+      params.require(:user).permit(:nombre, :primer_apellido, :segundo_apellido, :curp, :tipo_usuario_id)
     end
 end

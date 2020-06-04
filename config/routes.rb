@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   scope "/admin" do
     resources :users
   end
-  resources :users
+  resources :users do
+    collection do
+      get 'panel_usuario'
+    end
+  end
   resources :tipo_usuarios
-  resources :alumnos
   devise_scope :user do
     root to: "devise/sessions#new"
   end
