@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_051519) do
+ActiveRecord::Schema.define(version: 2020_06_04_050555) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "boleta"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_051519) do
     t.string "segundo_apellido"
     t.string "curp"
     t.integer "tipo_usuario_id", null: false
-    t.integer "alumno_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -38,12 +37,10 @@ ActiveRecord::Schema.define(version: 2020_05_19_051519) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.index ["alumno_id"], name: "index_users_on_alumno_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["tipo_usuario_id"], name: "index_users_on_tipo_usuario_id"
   end
 
-  add_foreign_key "users", "alumnos"
   add_foreign_key "users", "tipo_usuarios"
 end
