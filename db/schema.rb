@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_050555) do
+ActiveRecord::Schema.define(version: 2020_06_04_060033) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "boleta"
+    t.string "cvu"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_alumnos_on_user_id"
   end
 
   create_table "tipo_usuarios", force: :cascade do |t|
@@ -42,5 +45,6 @@ ActiveRecord::Schema.define(version: 2020_06_04_050555) do
     t.index ["tipo_usuario_id"], name: "index_users_on_tipo_usuario_id"
   end
 
+  add_foreign_key "alumnos", "users"
   add_foreign_key "users", "tipo_usuarios"
 end

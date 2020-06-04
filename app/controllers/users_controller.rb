@@ -62,6 +62,7 @@ class UsersController < ApplicationController
   end
 
   def panel_usuario
+    @alumno = Alumno.find_by(user_id: current_user.id)
   end
 
   private

@@ -1,0 +1,14 @@
+<% if Alumno.find_by(user_id: current_user.id).present? %>
+<div class="col-md-4">
+  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+      <strong class="d-inline-block mb-2 text-primary">Usuario</strong>
+      <h3 class="mb-0"><%= current_user.nombre %></h3>
+      <p class="card-text mb-auto">Boleta: <%= @alumno.boleta %></p>
+      <p class="card-text mb-auto">CVU: <%= @alumno.cvu %></p>
+    </div>
+  </div>
+</div>
+<% else %>
+Antes de continuar <%= link_to 'captura tu boleta y CVU', new_alumno_path %>
+<% end %>
