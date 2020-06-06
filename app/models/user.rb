@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   belongs_to :tipo_usuario
   has_many :alumnos
+  has_many :casos, dependent: :destroy
   before_validation :asignar_usuario
 
   def usuario?

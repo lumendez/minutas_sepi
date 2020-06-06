@@ -1,0 +1,37 @@
+<%= form_with(model: caso, local: true) do |form| %>
+  <% if caso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(caso.errors.count, "error") %> prohibited this caso from being saved:</h2>
+
+      <ul>
+        <% caso.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= form.label :tipo_caso_id, 'Tipo de caso' %>
+      <%= collection_select(:caso, :tipo_caso_id, TipoCaso.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+
+  <div class="row resultado"></div>
+
+  <div class="row">
+    <div class="actions col-sm-4">
+      <%= form.submit "Enviar", class: "btn btn-md btn-primary" %>
+    </div>
+  </div>
+
+  <script>
+    const selectElement = document.querySelector('.form-control');
+
+    selectElement.addEventListener('change', (event) => {
+        const resultado = document.querySelector('.resultado');
+        resultado.innerHTML = `<%= j render partial: "casos/director_tesis_registro", locals:{form: form} %>`;
+    });
+  </script>
+<% end %>

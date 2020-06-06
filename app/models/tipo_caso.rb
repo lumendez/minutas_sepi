@@ -1,0 +1,2 @@
+class TipoCaso < ApplicationRecord
+end

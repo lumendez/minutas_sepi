@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :director_tesis_registros
+  resources :casos
+  resources :tipo_casos
   resources :alumnos
   devise_for :users, :controllers => { registrations: 'registrations' }
   scope "/admin" do

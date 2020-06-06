@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @director_tesis_registro.nombre %>
+</p>
+
+<p>
+  <strong>Caso:</strong>
+  <%= @director_tesis_registro.caso_id %>
+</p>
+
+<%= link_to 'Edit', edit_director_tesis_registro_path(@director_tesis_registro) %> |
+<%= link_to 'Back', director_tesis_registros_path %>

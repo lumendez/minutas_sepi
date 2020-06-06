@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @caso.user_id %>
+</p>
+
+<p>
+  <strong>Tipo caso:</strong>
+  <%= @caso.tipo_caso_id %>
+</p>
+
+<%= link_to 'Edit', edit_caso_path(@caso) %> |
+<%= link_to 'Back', casos_path %>
