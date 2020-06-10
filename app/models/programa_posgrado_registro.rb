@@ -1,0 +1,2 @@
+class ProgramaPosgradoRegistro < ApplicationRecord
+end

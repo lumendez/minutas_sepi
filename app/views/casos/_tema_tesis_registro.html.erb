@@ -1,0 +1,6 @@
+<%= form.fields_for :tema_tesis_registros do |tema_tesis_registros_form| %>
+  <div class="form-group col-sm-3">
+    <%= tema_tesis_registros_form.label :nombre %>
+    <%= tema_tesis_registros_form.text_field :nombre, class: 'form-control' %>
+  </div>
+<% end %>

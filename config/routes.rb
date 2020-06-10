@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tema_tesis_registros
+  resources :programa_posgrado_registros
   resources :director_tesis_registros
   resources :casos
   resources :tipo_casos

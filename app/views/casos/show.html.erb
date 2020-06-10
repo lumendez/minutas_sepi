@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @caso.user_id %>
+  <%= @caso.alumno.user.nombre %>
 </p>
 
 <p>
   <strong>Tipo caso:</strong>
-  <%= @caso.tipo_caso_id %>
+  <%= @caso.tipo_caso.nombre %>
 </p>
 
 <%= link_to 'Edit', edit_caso_path(@caso) %> |

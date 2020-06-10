@@ -1,0 +1,22 @@
+<%= form_with(model: programa_posgrado_registro, local: true) do |form| %>
+  <% if programa_posgrado_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(programa_posgrado_registro.errors.count, "error") %> prohibited this programa_posgrado_registro from being saved:</h2>
+
+      <ul>
+        <% programa_posgrado_registro.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

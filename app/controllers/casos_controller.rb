@@ -15,8 +15,9 @@ class CasosController < ApplicationController
   # GET /casos/new
   def new
     alumno = Alumno.find_by(user_id: current_user.id)
-    @caso = current_user.casos.build
+    @caso = alumno.casos.build
     @caso.director_tesis_registros.build
+    @caso.tema_tesis_registros.build
   end
 
   # GET /casos/1/edit
@@ -26,7 +27,8 @@ class CasosController < ApplicationController
   # POST /casos
   # POST /casos.json
   def create
-    @caso = current_user.casos.build(caso_params)
+    alumno = Alumno.find_by(user_id: current_user.id)
+    @caso = alumno.casos.build(caso_params)
 
     respond_to do |format|
       if @caso.save
@@ -71,6 +73,7 @@ class CasosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def caso_params
-      params.require(:caso).permit(:user_id, :tipo_caso_id, director_tesis_registros_attributes: [:id, :nombre, :caso_id])
+      params.require(:caso).permit(:alumno_id, :tipo_caso_id, director_tesis_registros_attributes: [:id, :nombre, :caso_id],
+      tema_tesis_registros_attributes: [:id, :nombre, :caso_id])
     end
 end

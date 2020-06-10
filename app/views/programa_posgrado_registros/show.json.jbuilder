@@ -1,0 +1,1 @@
+json.partial! "programa_posgrado_registros/programa_posgrado_registro", programa_posgrado_registro: @programa_posgrado_registro

@@ -15,10 +15,10 @@
   <tbody>
     <% @casos.each do |caso| %>
       <tr>
-        <td><%= caso.user.nombre %></td>
-        <td><%= caso.user.primer_apellido %></td>
-        <td><%= caso.user.segundo_apellido %></td>
-        <td><%= Alumno.find_by(user_id: caso.user.id).boleta %></td>
+        <td><%= caso.alumno.user.nombre %></td>
+        <td><%= caso.alumno.user.primer_apellido %></td>
+        <td><%= caso.alumno.user.segundo_apellido %></td>
+        <td><%= caso.alumno.boleta %></td>
         <td><%= caso.tipo_caso.nombre %></td>
         <td><%= link_to 'Show', caso %></td>
         <td><%= link_to 'Edit', edit_caso_path(caso) %></td>
