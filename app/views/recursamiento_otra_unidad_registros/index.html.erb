@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recursamiento Otra Unidad Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th>Creditos</th>
+      <th>Nombre unidad academica</th>
+      <th>Caso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recursamiento_otra_unidad_registros.each do |recursamiento_otra_unidad_registro| %>
+      <tr>
+        <td><%= recursamiento_otra_unidad_registro.nombre %></td>
+        <td><%= recursamiento_otra_unidad_registro.clave %></td>
+        <td><%= recursamiento_otra_unidad_registro.creditos %></td>
+        <td><%= recursamiento_otra_unidad_registro.nombre_unidad_academica %></td>
+        <td><%= recursamiento_otra_unidad_registro.caso_id %></td>
+        <td><%= link_to 'Show', recursamiento_otra_unidad_registro %></td>
+        <td><%= link_to 'Edit', edit_recursamiento_otra_unidad_registro_path(recursamiento_otra_unidad_registro) %></td>
+        <td><%= link_to 'Destroy', recursamiento_otra_unidad_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recursamiento Otra Unidad Registro', new_recursamiento_otra_unidad_registro_path %>

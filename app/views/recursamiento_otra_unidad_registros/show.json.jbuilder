@@ -1,0 +1,1 @@
+json.partial! "recursamiento_otra_unidad_registros/recursamiento_otra_unidad_registro", recursamiento_otra_unidad_registro: @recursamiento_otra_unidad_registro

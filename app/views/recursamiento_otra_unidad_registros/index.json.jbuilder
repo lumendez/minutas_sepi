@@ -1,0 +1,1 @@
+json.array! @recursamiento_otra_unidad_registros, partial: "recursamiento_otra_unidad_registros/recursamiento_otra_unidad_registro", as: :recursamiento_otra_unidad_registro

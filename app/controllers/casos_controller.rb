@@ -18,6 +18,7 @@ class CasosController < ApplicationController
     @caso = alumno.casos.build
     @caso.director_tesis_registros.build
     @caso.tema_tesis_registros.build
+    @caso.recursamiento_otra_unidad_registros.build
   end
 
   # GET /casos/1/edit
@@ -73,7 +74,9 @@ class CasosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def caso_params
-      params.require(:caso).permit(:alumno_id, :tipo_caso_id, director_tesis_registros_attributes: [:id, :nombre, :caso_id],
-      tema_tesis_registros_attributes: [:id, :nombre, :caso_id])
+      params.require(:caso).permit(:alumno_id, :tipo_caso_id,
+         director_tesis_registros_attributes: [:id, :nombre, :caso_id],
+         tema_tesis_registros_attributes: [:id, :nombre, :caso_id],
+         recursamiento_otra_unidad_registros_attributes: [:id, :nombre, :clave, :creditos, :nombre_unidad_academica, :caso_id])
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_045436) do
+ActiveRecord::Schema.define(version: 2020_06_10_200342) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "boleta"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 2020_06_08_045436) do
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recursamiento_otra_unidad_registros", force: :cascade do |t|
+    t.string "nombre"
+    t.string "clave"
+    t.string "creditos"
+    t.string "nombre_unidad_academica"
+    t.integer "caso_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["caso_id"], name: "index_recursamiento_otra_unidad_registros_on_caso_id"
   end
 
   create_table "tema_tesis_registros", force: :cascade do |t|
@@ -86,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_045436) do
   add_foreign_key "casos", "alumnos"
   add_foreign_key "casos", "tipo_casos"
   add_foreign_key "director_tesis_registros", "casos"
+  add_foreign_key "recursamiento_otra_unidad_registros", "casos"
   add_foreign_key "tema_tesis_registros", "casos"
   add_foreign_key "users", "tipo_usuarios"
 end

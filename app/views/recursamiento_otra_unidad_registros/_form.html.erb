@@ -1,0 +1,42 @@
+<%= form_with(model: recursamiento_otra_unidad_registro, local: true) do |form| %>
+  <% if recursamiento_otra_unidad_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recursamiento_otra_unidad_registro.errors.count, "error") %> prohibited this recursamiento_otra_unidad_registro from being saved:</h2>
+
+      <ul>
+        <% recursamiento_otra_unidad_registro.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clave %>
+    <%= form.text_field :clave %>
+  </div>
+
+  <div class="field">
+    <%= form.label :creditos %>
+    <%= form.text_field :creditos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre_unidad_academica %>
+    <%= form.text_field :nombre_unidad_academica %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caso_id %>
+    <%= form.text_field :caso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
