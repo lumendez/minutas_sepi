@@ -55,6 +55,9 @@
         else if (event.target.value == 9){
           resultado.innerHTML = `<%= j render partial: "casos/flexibilidad_academica_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 10){
+          resultado.innerHTML = `<%= j render partial: "casos/comite_tutorial_registro", locals:{form: form} %>`;
+        }
     });
   </script>
 <% end %>

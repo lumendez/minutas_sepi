@@ -1,0 +1,22 @@
+<%= form.fields_for :comite_tutorial_registros do |comite_tutorial_registros_form| %>
+  <div class="form-group col-sm-3">
+    <%= comite_tutorial_registros_form.label :primer_tutor, 'Primer tutor' %>
+    <%= comite_tutorial_registros_form.text_field :primer_tutor, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= comite_tutorial_registros_form.label :segundo_tutor, 'Segundo tutor' %>
+    <%= comite_tutorial_registros_form.text_field :segundo_tutor, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= comite_tutorial_registros_form.label :tercer_tutor, 'Tercer tutor' %>
+    <%= comite_tutorial_registros_form.text_field :tercer_tutor, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= comite_tutorial_registros_form.label :cuarto_tutor, 'Cuarto tutor' %>
+    <%= comite_tutorial_registros_form.text_field :cuarto_tutor, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= comite_tutorial_registros_form.label :quinto_tutor, 'Quinto tutor' %>
+    <%= comite_tutorial_registros_form.text_field :quinto_tutor, class: 'form-control' %>
+  </div>
+<% end %>

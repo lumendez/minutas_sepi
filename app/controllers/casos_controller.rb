@@ -24,6 +24,7 @@ class CasosController < ApplicationController
     @caso.cursar_unidad_aprendizaje_externa_registros.build
     @caso.solicitud_programa_movilidad_registros.build
     @caso.flexibilidad_academica_registros.build
+    @caso.comite_tutorial_registros.build
   end
 
   # GET /casos/1/edit
@@ -87,6 +88,7 @@ class CasosController < ApplicationController
          cambio_tema_tesis_registros_attributes: [:id, :nombre, :caso_id],
          cursar_unidad_aprendizaje_externa_registros_attributes: [:id, :nombre, :clave, :creditos, :unidad_academica, :caso_id],
          solicitud_programa_movilidad_registros_attributes: [:id, :nombre, :nombre_institucion, :caso_id],
-         flexibilidad_academica_registros_attributes: [:id, :nombre, :caso_id])
+         flexibilidad_academica_registros_attributes: [:id, :nombre, :caso_id],
+         comite_tutorial_registros_attributes: [:id, :primer_tutor, :segundo_tutor, :tercer_tutor, :cuarto_tutor, :quinto_tutor, :caso_id])
     end
 end

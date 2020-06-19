@@ -1,0 +1,47 @@
+<%= form_with(model: comite_tutorial_registro, local: true) do |form| %>
+  <% if comite_tutorial_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comite_tutorial_registro.errors.count, "error") %> prohibited this comite_tutorial_registro from being saved:</h2>
+
+      <ul>
+        <% comite_tutorial_registro.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :primer_tutor %>
+    <%= form.text_field :primer_tutor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :segundo_tutor %>
+    <%= form.text_field :segundo_tutor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tercer_tutor %>
+    <%= form.text_field :tercer_tutor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cuarto_tutor %>
+    <%= form.text_field :cuarto_tutor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quinto_tutor %>
+    <%= form.text_field :quinto_tutor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caso_id %>
+    <%= form.text_field :caso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
