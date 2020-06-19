@@ -1,0 +1,2 @@
+module FlexibilidadAcademicaRegistrosHelper
+end

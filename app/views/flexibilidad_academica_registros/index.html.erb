@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Flexibilidad Academica Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Caso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flexibilidad_academica_registros.each do |flexibilidad_academica_registro| %>
+      <tr>
+        <td><%= flexibilidad_academica_registro.nombre %></td>
+        <td><%= flexibilidad_academica_registro.caso_id %></td>
+        <td><%= link_to 'Show', flexibilidad_academica_registro %></td>
+        <td><%= link_to 'Edit', edit_flexibilidad_academica_registro_path(flexibilidad_academica_registro) %></td>
+        <td><%= link_to 'Destroy', flexibilidad_academica_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flexibilidad Academica Registro', new_flexibilidad_academica_registro_path %>

@@ -1,0 +1,1 @@
+json.partial! "flexibilidad_academica_registros/flexibilidad_academica_registro", flexibilidad_academica_registro: @flexibilidad_academica_registro

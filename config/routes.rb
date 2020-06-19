@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :flexibilidad_academica_registros
   resources :solicitud_programa_movilidad_registros
   resources :cursar_unidad_aprendizaje_externa_registros
   resources :cambio_tema_tesis_registros
