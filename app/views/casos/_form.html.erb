@@ -43,6 +43,12 @@
         else if (event.target.value == 5){
           resultado.innerHTML = `<%= j render partial: "casos/cambio_director_tesis_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 6){
+          resultado.innerHTML = `<%= j render partial: "casos/cambio_tema_tesis_registro", locals:{form: form} %>`;
+        }
+        else if (event.target.value == 7){
+          resultado.innerHTML = `<%= j render partial: "casos/cursar_unidad_aprendizaje_externa_registro", locals:{form: form} %>`;
+        }
     });
   </script>
 <% end %>

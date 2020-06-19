@@ -1,0 +1,1 @@
+json.array! @cursar_unidad_aprendizaje_externa_registros, partial: "cursar_unidad_aprendizaje_externa_registros/cursar_unidad_aprendizaje_externa_registro", as: :cursar_unidad_aprendizaje_externa_registro

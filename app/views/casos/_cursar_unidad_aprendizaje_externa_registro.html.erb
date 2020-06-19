@@ -1,0 +1,18 @@
+<%= form.fields_for :cursar_unidad_aprendizaje_externa_registros do |cursar_unidad_aprendizaje_externa_registros_form| %>
+  <div class="form-group col-sm-3">
+    <%= cursar_unidad_aprendizaje_externa_registros_form.label :nombre, 'Nombre de la unidad de aprendizaje' %>
+    <%= cursar_unidad_aprendizaje_externa_registros_form.text_field :nombre, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cursar_unidad_aprendizaje_externa_registros_form.label :clave, 'Clave de la unidad de aprendizaje' %>
+    <%= cursar_unidad_aprendizaje_externa_registros_form.text_field :clave, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cursar_unidad_aprendizaje_externa_registros_form.label :creditos, 'Créditos de la unidad de aprendizaje' %>
+    <%= cursar_unidad_aprendizaje_externa_registros_form.text_field :creditos, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cursar_unidad_aprendizaje_externa_registros_form.label :unidad_academica, 'Nombre de la unidad académica' %>
+    <%= cursar_unidad_aprendizaje_externa_registros_form.text_field :unidad_academica, class: 'form-control' %>
+  </div>
+<% end %>

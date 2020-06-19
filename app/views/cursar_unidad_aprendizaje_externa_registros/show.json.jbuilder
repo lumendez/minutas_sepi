@@ -1,0 +1,1 @@
+json.partial! "cursar_unidad_aprendizaje_externa_registros/cursar_unidad_aprendizaje_externa_registro", cursar_unidad_aprendizaje_externa_registro: @cursar_unidad_aprendizaje_externa_registro

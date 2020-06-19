@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cursar_unidad_aprendizaje_externa_registros
+  resources :cambio_tema_tesis_registros
   resources :cambio_director_tesis_registros
   resources :recursamiento_otra_unidad_registros
   resources :tema_tesis_registros

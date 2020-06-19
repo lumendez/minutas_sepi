@@ -20,6 +20,8 @@ class CasosController < ApplicationController
     @caso.tema_tesis_registros.build
     @caso.recursamiento_otra_unidad_registros.build
     @caso.cambio_director_tesis_registros.build
+    @caso.cambio_tema_tesis_registros.build
+    @caso.cursar_unidad_aprendizaje_externa_registros.build
   end
 
   # GET /casos/1/edit
@@ -79,6 +81,8 @@ class CasosController < ApplicationController
          director_tesis_registros_attributes: [:id, :nombre, :caso_id],
          tema_tesis_registros_attributes: [:id, :nombre, :caso_id],
          recursamiento_otra_unidad_registros_attributes: [:id, :nombre, :clave, :creditos, :nombre_unidad_academica, :caso_id],
-         cambio_director_tesis_registros_attributes: [:id, :nombre, :nombre_segundo_director, :caso_id])
+         cambio_director_tesis_registros_attributes: [:id, :nombre, :nombre_segundo_director, :caso_id],
+         cambio_tema_tesis_registros_attributes: [:id, :nombre, :caso_id],
+         cursar_unidad_aprendizaje_externa_registros_attributes: [:id, :nombre, :clave, :creditos, :unidad_academica, :caso_id])
     end
 end
