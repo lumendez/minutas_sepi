@@ -49,6 +49,9 @@
         else if (event.target.value == 7){
           resultado.innerHTML = `<%= j render partial: "casos/cursar_unidad_aprendizaje_externa_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 8){
+          resultado.innerHTML = `<%= j render partial: "casos/solicitud_programa_movilidad_registro", locals:{form: form} %>`;
+        }
     });
   </script>
 <% end %>

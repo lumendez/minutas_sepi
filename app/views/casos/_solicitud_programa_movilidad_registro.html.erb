@@ -1,0 +1,10 @@
+<%= form.fields_for :solicitud_programa_movilidad_registros do |solicitud_programa_movilidad_registros_form| %>
+  <div class="form-group col-sm-3">
+    <%= solicitud_programa_movilidad_registros_form.label :nombre, 'Nombre del programa de movilidad' %>
+    <%= solicitud_programa_movilidad_registros_form.text_field :nombre, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= solicitud_programa_movilidad_registros_form.label :nombre_institucion, 'Nombre de la institución' %>
+    <%= solicitud_programa_movilidad_registros_form.text_field :nombre_institucion, class: 'form-control' %>
+  </div>
+<% end %>

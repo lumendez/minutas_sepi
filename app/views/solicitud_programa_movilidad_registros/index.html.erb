@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Solicitud Programa Movilidad Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Nombre institucion</th>
+      <th>Caso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @solicitud_programa_movilidad_registros.each do |solicitud_programa_movilidad_registro| %>
+      <tr>
+        <td><%= solicitud_programa_movilidad_registro.nombre %></td>
+        <td><%= solicitud_programa_movilidad_registro.nombre_institucion %></td>
+        <td><%= solicitud_programa_movilidad_registro.caso_id %></td>
+        <td><%= link_to 'Show', solicitud_programa_movilidad_registro %></td>
+        <td><%= link_to 'Edit', edit_solicitud_programa_movilidad_registro_path(solicitud_programa_movilidad_registro) %></td>
+        <td><%= link_to 'Destroy', solicitud_programa_movilidad_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Solicitud Programa Movilidad Registro', new_solicitud_programa_movilidad_registro_path %>

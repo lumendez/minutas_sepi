@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @solicitud_programa_movilidad_registro.nombre %>
+</p>
+
+<p>
+  <strong>Nombre institucion:</strong>
+  <%= @solicitud_programa_movilidad_registro.nombre_institucion %>
+</p>
+
+<p>
+  <strong>Caso:</strong>
+  <%= @solicitud_programa_movilidad_registro.caso_id %>
+</p>
+
+<%= link_to 'Edit', edit_solicitud_programa_movilidad_registro_path(@solicitud_programa_movilidad_registro) %> |
+<%= link_to 'Back', solicitud_programa_movilidad_registros_path %>

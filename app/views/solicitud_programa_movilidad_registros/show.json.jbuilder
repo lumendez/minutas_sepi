@@ -1,0 +1,1 @@
+json.partial! "solicitud_programa_movilidad_registros/solicitud_programa_movilidad_registro", solicitud_programa_movilidad_registro: @solicitud_programa_movilidad_registro

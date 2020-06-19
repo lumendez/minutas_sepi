@@ -1,0 +1,1 @@
+json.array! @solicitud_programa_movilidad_registros, partial: "solicitud_programa_movilidad_registros/solicitud_programa_movilidad_registro", as: :solicitud_programa_movilidad_registro
