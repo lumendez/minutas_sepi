@@ -4,7 +4,8 @@ class Caso < ApplicationRecord
   has_many :director_tesis_registros, dependent: :destroy
   has_many :tema_tesis_registros, dependent: :destroy
   has_many :recursamiento_otra_unidad_registros, dependent: :destroy
+  has_many :cambio_director_tesis_registros, dependent: :destroy
 
   accepts_nested_attributes_for :director_tesis_registros, :tema_tesis_registros,
-  :recursamiento_otra_unidad_registros
+  :recursamiento_otra_unidad_registros, :cambio_director_tesis_registros
 end

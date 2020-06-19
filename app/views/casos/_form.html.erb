@@ -40,6 +40,9 @@
         else if (event.target.value == 4){
           resultado.innerHTML = `<%= j render partial: "casos/recursamiento_otra_unidad_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 5){
+          resultado.innerHTML = `<%= j render partial: "casos/cambio_director_tesis_registro", locals:{form: form} %>`;
+        }
     });
   </script>
 <% end %>

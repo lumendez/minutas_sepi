@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_200342) do
+ActiveRecord::Schema.define(version: 2020_06_11_020251) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "boleta"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2020_06_10_200342) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_alumnos_on_user_id"
+  end
+
+  create_table "cambio_director_tesis_registros", force: :cascade do |t|
+    t.string "nombre"
+    t.string "nombre_segundo_director"
+    t.integer "caso_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["caso_id"], name: "index_cambio_director_tesis_registros_on_caso_id"
   end
 
   create_table "casos", force: :cascade do |t|
@@ -94,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_200342) do
   end
 
   add_foreign_key "alumnos", "users"
+  add_foreign_key "cambio_director_tesis_registros", "casos"
   add_foreign_key "casos", "alumnos"
   add_foreign_key "casos", "tipo_casos"
   add_foreign_key "director_tesis_registros", "casos"

@@ -19,6 +19,7 @@ class CasosController < ApplicationController
     @caso.director_tesis_registros.build
     @caso.tema_tesis_registros.build
     @caso.recursamiento_otra_unidad_registros.build
+    @caso.cambio_director_tesis_registros.build
   end
 
   # GET /casos/1/edit
@@ -77,6 +78,7 @@ class CasosController < ApplicationController
       params.require(:caso).permit(:alumno_id, :tipo_caso_id,
          director_tesis_registros_attributes: [:id, :nombre, :caso_id],
          tema_tesis_registros_attributes: [:id, :nombre, :caso_id],
-         recursamiento_otra_unidad_registros_attributes: [:id, :nombre, :clave, :creditos, :nombre_unidad_academica, :caso_id])
+         recursamiento_otra_unidad_registros_attributes: [:id, :nombre, :clave, :creditos, :nombre_unidad_academica, :caso_id],
+         cambio_director_tesis_registros_attributes: [:id, :nombre, :nombre_segundo_director, :caso_id])
     end
 end

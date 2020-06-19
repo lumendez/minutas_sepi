@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cambio_director_tesis_registros
   resources :recursamiento_otra_unidad_registros
   resources :tema_tesis_registros
   resources :programa_posgrado_registros
