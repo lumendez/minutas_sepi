@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cambio_comite_tutorial_registros
   resources :comite_tutorial_registros
   resources :flexibilidad_academica_registros
   resources :solicitud_programa_movilidad_registros

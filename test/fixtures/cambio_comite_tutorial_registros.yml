@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  primer_tutor: MyString
+  segundo_tutor: MyString
+  tercer_tutor: MyString
+  cuarto_tutor: MyString
+  quinto_tutor: MyString
+  caso: one
+
+two:
+  primer_tutor: MyString
+  segundo_tutor: MyString
+  tercer_tutor: MyString
+  cuarto_tutor: MyString
+  quinto_tutor: MyString
+  caso: two

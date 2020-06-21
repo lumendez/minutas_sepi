@@ -58,6 +58,9 @@
         else if (event.target.value == 10){
           resultado.innerHTML = `<%= j render partial: "casos/comite_tutorial_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 11){
+          resultado.innerHTML = `<%= j render partial: "casos/cambio_comite_tutorial_registro", locals:{form: form} %>`;
+        }
     });
   </script>
 <% end %>
