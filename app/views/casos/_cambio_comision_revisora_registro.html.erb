@@ -1,0 +1,26 @@
+<%= form.fields_for :cambio_comision_revisora_registros do |cambio_comision_revisora_registros_form| %>
+  <div class="form-group col-sm-3">
+    <%= cambio_comision_revisora_registros_form.label :presidente, 'Presidente' %>
+    <%= cambio_comision_revisora_registros_form.text_field :presidente, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cambio_comision_revisora_registros_form.label :secretario, 'Secretario' %>
+    <%= cambio_comision_revisora_registros_form.text_field :secretario, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cambio_comision_revisora_registros_form.label :primer_vocal, 'Primer vocal' %>
+    <%= cambio_comision_revisora_registros_form.text_field :primer_vocal, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cambio_comision_revisora_registros_form.label :segundo_vocal, 'Segundo vocal' %>
+    <%= cambio_comision_revisora_registros_form.text_field :segundo_vocal, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cambio_comision_revisora_registros_form.label :tercer_vocal, 'Tercer vocal' %>
+    <%= cambio_comision_revisora_registros_form.text_field :tercer_vocal, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= cambio_comision_revisora_registros_form.label :suplente, 'Suplente' %>
+    <%= cambio_comision_revisora_registros_form.text_field :suplente, class: 'form-control' %>
+  </div>
+<% end %>

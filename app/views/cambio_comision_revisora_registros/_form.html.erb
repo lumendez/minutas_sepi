@@ -1,0 +1,52 @@
+<%= form_with(model: cambio_comision_revisora_registro, local: true) do |form| %>
+  <% if cambio_comision_revisora_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cambio_comision_revisora_registro.errors.count, "error") %> prohibited this cambio_comision_revisora_registro from being saved:</h2>
+
+      <ul>
+        <% cambio_comision_revisora_registro.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :presidente %>
+    <%= form.text_field :presidente %>
+  </div>
+
+  <div class="field">
+    <%= form.label :secretario %>
+    <%= form.text_field :secretario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :primer_vocal %>
+    <%= form.text_field :primer_vocal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :segundo_vocal %>
+    <%= form.text_field :segundo_vocal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tercer_vocal %>
+    <%= form.text_field :tercer_vocal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :suplente %>
+    <%= form.text_field :suplente %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caso_id %>
+    <%= form.text_field :caso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

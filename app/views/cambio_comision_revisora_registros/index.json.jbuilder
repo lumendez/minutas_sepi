@@ -1,0 +1,1 @@
+json.array! @cambio_comision_revisora_registros, partial: "cambio_comision_revisora_registros/cambio_comision_revisora_registro", as: :cambio_comision_revisora_registro

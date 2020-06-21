@@ -1,0 +1,1 @@
+json.partial! "cambio_comision_revisora_registros/cambio_comision_revisora_registro", cambio_comision_revisora_registro: @cambio_comision_revisora_registro

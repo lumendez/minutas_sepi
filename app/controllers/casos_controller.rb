@@ -26,6 +26,8 @@ class CasosController < ApplicationController
     @caso.flexibilidad_academica_registros.build
     @caso.comite_tutorial_registros.build
     @caso.cambio_comite_tutorial_registros.build
+    @caso.comision_revisora_registros.build
+    @caso.cambio_comision_revisora_registros.build
   end
 
   # GET /casos/1/edit
@@ -91,6 +93,8 @@ class CasosController < ApplicationController
          solicitud_programa_movilidad_registros_attributes: [:id, :nombre, :nombre_institucion, :caso_id],
          flexibilidad_academica_registros_attributes: [:id, :nombre, :caso_id],
          comite_tutorial_registros_attributes: [:id, :primer_tutor, :segundo_tutor, :tercer_tutor, :cuarto_tutor, :quinto_tutor, :caso_id],
-         cambio_comite_tutorial_registros_attributes: [:id, :primer_tutor, :segundo_tutor, :tercer_tutor, :cuarto_tutor, :quinto_tutor, :caso_id])
+         cambio_comite_tutorial_registros_attributes: [:id, :primer_tutor, :segundo_tutor, :tercer_tutor, :cuarto_tutor, :quinto_tutor, :caso_id],
+         comision_revisora_registros_attributes: [:id, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :caso_id],
+         cambio_comision_revisora_registros_attributes: [:id, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :caso_id])
     end
 end
