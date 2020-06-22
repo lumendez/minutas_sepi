@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cambio_maestria_doctorado_registros
   resources :ampliacion_semestre_registros
   resources :baja_temporal_registros
   resources :examen_obtencion_grado_registros

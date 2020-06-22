@@ -1,0 +1,6 @@
+<%= form.fields_for :cambio_maestria_doctorado_registros do |cambio_maestria_doctorado_registros_form| %>
+  <div class="form-group col-sm-10">
+    <%= cambio_maestria_doctorado_registros_form.label :motivacion, 'Escriba por favor el fundamento o motivacion de la petición' %>
+    <%= cambio_maestria_doctorado_registros_form.text_area :motivacion, class: 'form-control' %>
+  </div>
+<% end %>

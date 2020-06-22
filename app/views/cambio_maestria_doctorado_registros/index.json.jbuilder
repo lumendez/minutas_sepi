@@ -1,0 +1,1 @@
+json.array! @cambio_maestria_doctorado_registros, partial: "cambio_maestria_doctorado_registros/cambio_maestria_doctorado_registro", as: :cambio_maestria_doctorado_registro

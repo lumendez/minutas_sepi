@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="row">
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4">
       <%= form.label :tipo_caso_id, 'Tipo de caso' %>
-      <%= collection_select(:caso, :tipo_caso_id, TipoCaso.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:caso, :tipo_caso_id, TipoCaso.all.order(nombre: :asc), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
   </div>
 
@@ -84,6 +84,9 @@
         }
         else if (event.target.value == 19){
           resultado.innerHTML = `<%= j render partial: "casos/ampliacion_semestre_registro", locals:{form: form} %>`;
+        }
+        else if (event.target.value == 20){
+          resultado.innerHTML = `<%= j render partial: "casos/cambio_maestria_doctorado_registro", locals:{form: form} %>`;
         }
     });
   </script>
