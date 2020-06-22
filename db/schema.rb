@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_070550) do
+ActiveRecord::Schema.define(version: 2020_06_22_071820) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "boleta"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_06_22_070550) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "programa_posgrado_registro_id", null: false
+    t.index ["programa_posgrado_registro_id"], name: "index_alumnos_on_programa_posgrado_registro_id"
     t.index ["user_id"], name: "index_alumnos_on_user_id"
   end
 
@@ -255,6 +257,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_070550) do
     t.index ["tipo_usuario_id"], name: "index_users_on_tipo_usuario_id"
   end
 
+  add_foreign_key "alumnos", "programa_posgrado_registros"
   add_foreign_key "alumnos", "users"
   add_foreign_key "ampliacion_semestre_registros", "casos"
   add_foreign_key "asignatura_registros", "programa_posgrado_registros"

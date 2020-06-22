@@ -26,6 +26,13 @@
   </div>
 
   <div class="row">
+    <div class="form-group col-sm-4">
+      <%= form.label :programa_posgrado_registro_id, 'Programa de posgrado' %>
+      <%= collection_select(:alumno, :programa_posgrado_registro_id, ProgramaPosgradoRegistro.all.order(nombre: :asc), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="actions col-sm-4">
       <%= form.submit "Enviar", class: "btn btn-md btn-primary" %>
     </div>
