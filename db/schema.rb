@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_200419) do
+ActiveRecord::Schema.define(version: 2020_06_22_201707) do
 
   create_table "agregar_asignatura_registros", force: :cascade do |t|
     t.integer "asignatura_registro_id", null: false
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_200419) do
     t.integer "caso_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nombre_segundo_director"
     t.index ["caso_id"], name: "index_director_tesis_registros_on_caso_id"
   end
 

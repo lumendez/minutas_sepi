@@ -1,6 +1,10 @@
 <%= form.fields_for :director_tesis_registros do |director_tesis_registros_form| %>
   <div class="form-group col-sm-3">
-    <%= director_tesis_registros_form.label :nombre %>
+    <%= director_tesis_registros_form.label :nombre, 'Nombre del director de tesis' %>
     <%= director_tesis_registros_form.text_field :nombre, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= director_tesis_registros_form.label :nombre_segundo_director, 'Nombre del segundo director' %>
+    <%= director_tesis_registros_form.text_field :nombre_segundo_director, class: 'form-control' %>
   </div>
 <% end %>
