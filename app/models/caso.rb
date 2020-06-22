@@ -14,6 +14,7 @@ class Caso < ApplicationRecord
   has_many :comision_revisora_registros, dependent: :destroy
   has_many :cambio_comision_revisora_registros, dependent: :destroy
   has_many :revocacion_baja_registros, dependent: :destroy
+  has_many :segundo_director_tesis_registros, dependent: :destroy
 
   accepts_nested_attributes_for :director_tesis_registros, :tema_tesis_registros,
   :recursamiento_otra_unidad_registros, :cambio_director_tesis_registros,
@@ -21,5 +22,5 @@ class Caso < ApplicationRecord
   :solicitud_programa_movilidad_registros, :flexibilidad_academica_registros,
   :comite_tutorial_registros, :cambio_comite_tutorial_registros,
   :comision_revisora_registros, :cambio_comision_revisora_registros,
-  :revocacion_baja_registros
+  :revocacion_baja_registros, :segundo_director_tesis_registros
 end

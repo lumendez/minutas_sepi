@@ -1,0 +1,1 @@
+json.partial! "segundo_director_tesis_registros/segundo_director_tesis_registro", segundo_director_tesis_registro: @segundo_director_tesis_registro
