@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asignatura registro:</strong>
+  <%= @agregar_asignatura_registro.asignatura_registro_id %>
+</p>
+
+<p>
+  <strong>Caso:</strong>
+  <%= @agregar_asignatura_registro.caso_id %>
+</p>
+
+<%= link_to 'Edit', edit_agregar_asignatura_registro_path(@agregar_asignatura_registro) %> |
+<%= link_to 'Back', agregar_asignatura_registros_path %>

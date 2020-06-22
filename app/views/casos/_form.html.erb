@@ -34,6 +34,9 @@
         if (event.target.value == 1){
           resultado.innerHTML = `<%= j render partial: "casos/director_tesis_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 2){
+          resultado.innerHTML = `<%= j render partial: "casos/agregar_asignatura_registro", locals:{form: form} %>`;
+        }
         else if (event.target.value == 3){
           resultado.innerHTML = `<%= j render partial: "casos/tema_tesis_registro", locals:{form: form} %>`;
         }

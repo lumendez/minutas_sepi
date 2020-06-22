@@ -15,6 +15,7 @@ class CasosController < ApplicationController
   # GET /casos/new
   def new
     alumno = Alumno.find_by(user_id: current_user.id)
+    @alumno_actual = alumno
     @caso = alumno.casos.build
     @caso.director_tesis_registros.build
     @caso.tema_tesis_registros.build
@@ -35,6 +36,7 @@ class CasosController < ApplicationController
     @caso.baja_temporal_registros.build
     @caso.ampliacion_semestre_registros.build
     @caso.cambio_maestria_doctorado_registros.build
+    @caso.agregar_asignatura_registros.build
   end
 
   # GET /casos/1/edit
@@ -109,6 +111,7 @@ class CasosController < ApplicationController
          examen_obtencion_grado_registros_attributes: [:id, :motivacion, :caso_id],
          baja_temporal_registros_attributes: [:id, :motivacion, :caso_id],
          ampliacion_semestre_registros_attributes: [:id, :motivacion, :caso_id],
-         cambio_maestria_doctorado_registros_attributes: [:id, :motivacion, :caso_id])
+         cambio_maestria_doctorado_registros_attributes: [:id, :motivacion, :caso_id],
+         agregar_asignatura_registros_attributes: [:id, :asignatura_registro_id, :caso_id])
     end
 end

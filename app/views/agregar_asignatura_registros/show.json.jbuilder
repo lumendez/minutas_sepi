@@ -1,0 +1,1 @@
+json.partial! "agregar_asignatura_registros/agregar_asignatura_registro", agregar_asignatura_registro: @agregar_asignatura_registro

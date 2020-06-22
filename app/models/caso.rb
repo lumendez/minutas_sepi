@@ -20,6 +20,7 @@ class Caso < ApplicationRecord
   has_many :baja_temporal_registros, dependent: :destroy
   has_many :ampliacion_semestre_registros, dependent: :destroy
   has_many :cambio_maestria_doctorado_registros, dependent: :destroy
+  has_many :agregar_asignatura_registros, dependent: :destroy
 
   accepts_nested_attributes_for :director_tesis_registros, :tema_tesis_registros,
   :recursamiento_otra_unidad_registros, :cambio_director_tesis_registros,
@@ -30,5 +31,5 @@ class Caso < ApplicationRecord
   :revocacion_baja_registros, :segundo_director_tesis_registros,
   :solicitud_abierta_registros, :examen_obtencion_grado_registros,
   :baja_temporal_registros, :ampliacion_semestre_registros,
-  :cambio_maestria_doctorado_registros
+  :cambio_maestria_doctorado_registros, :agregar_asignatura_registros
 end

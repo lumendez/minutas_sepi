@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Agregar Asignatura Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asignatura registro</th>
+      <th>Caso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agregar_asignatura_registros.each do |agregar_asignatura_registro| %>
+      <tr>
+        <td><%= agregar_asignatura_registro.asignatura_registro_id %></td>
+        <td><%= agregar_asignatura_registro.caso_id %></td>
+        <td><%= link_to 'Show', agregar_asignatura_registro %></td>
+        <td><%= link_to 'Edit', edit_agregar_asignatura_registro_path(agregar_asignatura_registro) %></td>
+        <td><%= link_to 'Destroy', agregar_asignatura_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agregar Asignatura Registro', new_agregar_asignatura_registro_path %>
