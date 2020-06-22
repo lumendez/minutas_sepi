@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ampliacion Semestre Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Motivacion</th>
+      <th>Caso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ampliacion_semestre_registros.each do |ampliacion_semestre_registro| %>
+      <tr>
+        <td><%= ampliacion_semestre_registro.motivacion %></td>
+        <td><%= ampliacion_semestre_registro.caso_id %></td>
+        <td><%= link_to 'Show', ampliacion_semestre_registro %></td>
+        <td><%= link_to 'Edit', edit_ampliacion_semestre_registro_path(ampliacion_semestre_registro) %></td>
+        <td><%= link_to 'Destroy', ampliacion_semestre_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ampliacion Semestre Registro', new_ampliacion_semestre_registro_path %>

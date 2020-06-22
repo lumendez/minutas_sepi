@@ -1,0 +1,1 @@
+json.partial! "ampliacion_semestre_registros/ampliacion_semestre_registro", ampliacion_semestre_registro: @ampliacion_semestre_registro
