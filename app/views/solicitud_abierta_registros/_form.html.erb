@@ -1,0 +1,32 @@
+<%= form_with(model: solicitud_abierta_registro, local: true) do |form| %>
+  <% if solicitud_abierta_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(solicitud_abierta_registro.errors.count, "error") %> prohibited this solicitud_abierta_registro from being saved:</h2>
+
+      <ul>
+        <% solicitud_abierta_registro.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :asunto %>
+    <%= form.text_field :asunto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motivacion %>
+    <%= form.text_area :motivacion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caso_id %>
+    <%= form.text_field :caso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

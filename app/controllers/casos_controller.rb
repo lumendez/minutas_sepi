@@ -30,6 +30,7 @@ class CasosController < ApplicationController
     @caso.cambio_comision_revisora_registros.build
     @caso.revocacion_baja_registros.build
     @caso.segundo_director_tesis_registros.build
+    @caso.solicitud_abierta_registros.build
   end
 
   # GET /casos/1/edit
@@ -99,6 +100,7 @@ class CasosController < ApplicationController
          comision_revisora_registros_attributes: [:id, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :caso_id],
          cambio_comision_revisora_registros_attributes: [:id, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :caso_id],
          revocacion_baja_registros_attributes: [:id, :motivacion, :caso_id],
-         segundo_director_tesis_registros_attributes: [:id, :nombre, :caso_id])
+         segundo_director_tesis_registros_attributes: [:id, :nombre, :caso_id],
+         solicitud_abierta_registros_attributes: [:id, :asunto, :motivacion, :caso_id])
     end
 end

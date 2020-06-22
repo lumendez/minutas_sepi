@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_013343) do
+ActiveRecord::Schema.define(version: 2020_06_22_052917) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "boleta"
@@ -157,6 +157,15 @@ ActiveRecord::Schema.define(version: 2020_06_22_013343) do
     t.index ["caso_id"], name: "index_segundo_director_tesis_registros_on_caso_id"
   end
 
+  create_table "solicitud_abierta_registros", force: :cascade do |t|
+    t.string "asunto"
+    t.text "motivacion"
+    t.integer "caso_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["caso_id"], name: "index_solicitud_abierta_registros_on_caso_id"
+  end
+
   create_table "solicitud_programa_movilidad_registros", force: :cascade do |t|
     t.string "nombre"
     t.string "nombre_institucion"
@@ -219,6 +228,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_013343) do
   add_foreign_key "recursamiento_otra_unidad_registros", "casos"
   add_foreign_key "revocacion_baja_registros", "casos"
   add_foreign_key "segundo_director_tesis_registros", "casos"
+  add_foreign_key "solicitud_abierta_registros", "casos"
   add_foreign_key "solicitud_programa_movilidad_registros", "casos"
   add_foreign_key "tema_tesis_registros", "casos"
   add_foreign_key "users", "tipo_usuarios"

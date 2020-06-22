@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asunto:</strong>
+  <%= @solicitud_abierta_registro.asunto %>
+</p>
+
+<p>
+  <strong>Motivacion:</strong>
+  <%= @solicitud_abierta_registro.motivacion %>
+</p>
+
+<p>
+  <strong>Caso:</strong>
+  <%= @solicitud_abierta_registro.caso_id %>
+</p>
+
+<%= link_to 'Edit', edit_solicitud_abierta_registro_path(@solicitud_abierta_registro) %> |
+<%= link_to 'Back', solicitud_abierta_registros_path %>
