@@ -22,8 +22,16 @@
         <td><%= caso.alumno.user.segundo_apellido %></td>
         <td><%= caso.alumno.boleta %></td>
         <td><%= caso.tipo_caso.nombre %></td>
-        <td><%= caso.validacion_cuerpo_academico %></td>
-        <td><%= caso.validacion_asuntos_escolares %></td>
+        <% if caso.validacion_cuerpo_academico == true %>
+        <td class="table-success"><%= caso.validacion_cuerpo_academico ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="table-warning"><%= caso.validacion_cuerpo_academico ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if caso.validacion_asuntos_escolares == true %>
+        <td class="table-success"><%= caso.validacion_asuntos_escolares ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="table-warning"><%= caso.validacion_asuntos_escolares ? 'Si' : 'No' %></td>
+        <% end %>
         <td><%= link_to 'Mostrar', caso %></td>
         <td><%= link_to 'Editar', edit_caso_path(caso) %></td>
         <td><%= link_to 'Eliminar', caso, method: :delete, data: { confirm: '¿Está seguro?' } %></td>

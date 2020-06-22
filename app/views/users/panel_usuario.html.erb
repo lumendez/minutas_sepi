@@ -1,14 +1,87 @@
-<% if Alumno.find_by(user_id: current_user.id).present? %>
-<div class="col-md-4">
-  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-    <div class="col p-4 d-flex flex-column position-static">
-      <strong class="d-inline-block mb-2 text-primary">Usuario</strong>
-      <h3 class="mb-0"><%= current_user.nombre %></h3>
-      <p class="card-text mb-auto">Boleta: <%= @alumno.boleta %></p>
-      <p class="card-text mb-auto">CVU: <%= @alumno.cvu %></p>
+<% if @alumno.present? %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="row no-gutters border rounded">
+      <div class="col p-4 d-flex flex-column position-static">
+        <strong class="d-inline-block mb-2 text-primary">Usuario</strong>
+        <h3 class="mb-0"><%= current_user.nombre %></h3>
+        <p class="card-text mb-auto">Boleta: <%= @alumno.boleta %></p>
+        <p class="card-text mb-auto">CVU: <%= @alumno.cvu %></p>
+      </div>
     </div>
   </div>
 </div>
 <% else %>
 Antes de continuar <%= link_to 'captura tu boleta y CVU', new_alumno_path %>
 <% end %>
+<br>
+<br>
+<% if @casos_alumno.present? %>
+  <% @casos_alumno.each do |caso| %>
+    <div class="row">
+				<div class="col-md-12">
+					<div class="page-header">
+					  <h1><%= caso.tipo_caso.nombre %></h1>
+					</div>
+					<ul class="timeline timeline-horizontal">
+						<li class="timeline-item">
+							<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Solicitud</h4>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= caso.created_at %></small></p>
+								</div>
+								<div class="timeline-body">
+									<p>Registrado en el sistema</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-item">
+              <% if caso.validacion_cuerpo_academico == false %>
+							<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
+              <% else %>
+              <div class="timeline-badge sucess"><i class="glyphicon glyphicon-check"></i></div>
+              <% end %>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Cuerpo académico</h4>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>-</small></p>
+								</div>
+								<div class="timeline-body">
+									<p>Validado: <%= caso.validacion_cuerpo_academico ? 'Si' : 'No' %></p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-item">
+              <% if caso.validacion_asuntos_escolares == false %>
+							<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
+              <% else %>
+              <div class="timeline-badge sucess"><i class="glyphicon glyphicon-check"></i></div>
+              <% end %>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Asuntos escolares</h4>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>-</small></p>
+								</div>
+								<div class="timeline-body">
+									<p>Validado: <%= caso.validacion_asuntos_escolares ? 'Si' : 'No' %></p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-item">
+							<div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Integrado a minuta</h4>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>-</small></p>
+								</div>
+								<div class="timeline-body">
+									<p>Pendiente</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+			</div>
+    </div>
+    <% end %>
+  <% end %>

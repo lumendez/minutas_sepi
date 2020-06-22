@@ -63,6 +63,7 @@ class UsersController < ApplicationController
 
   def panel_usuario
     @alumno = Alumno.find_by(user_id: current_user.id)
+    @casos_alumno = Caso.where(alumno_id: @alumno.user_id)
   end
 
   private

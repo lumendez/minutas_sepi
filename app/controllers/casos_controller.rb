@@ -94,7 +94,7 @@ class CasosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def caso_params
       params.require(:caso).permit(:alumno_id, :tipo_caso_id, :validacion_cuerpo_academico, :validacion_comision,
-         director_tesis_registros_attributes: [:id, :nombre, :caso_id],
+         director_tesis_registros_attributes: [:id, :nombre, :nombre_segundo_director, :caso_id],
          tema_tesis_registros_attributes: [:id, :nombre, :caso_id],
          recursamiento_otra_unidad_registros_attributes: [:id, :nombre, :clave, :creditos, :nombre_unidad_academica, :caso_id],
          cambio_director_tesis_registros_attributes: [:id, :nombre, :nombre_segundo_director, :caso_id],
