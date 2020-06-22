@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Motivacion:</strong>
+  <%= @revocacion_baja_registro.motivacion %>
+</p>
+
+<p>
+  <strong>Caso:</strong>
+  <%= @revocacion_baja_registro.caso_id %>
+</p>
+
+<%= link_to 'Edit', edit_revocacion_baja_registro_path(@revocacion_baja_registro) %> |
+<%= link_to 'Back', revocacion_baja_registros_path %>

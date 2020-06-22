@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Revocacion Baja Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Motivacion</th>
+      <th>Caso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @revocacion_baja_registros.each do |revocacion_baja_registro| %>
+      <tr>
+        <td><%= revocacion_baja_registro.motivacion %></td>
+        <td><%= revocacion_baja_registro.caso_id %></td>
+        <td><%= link_to 'Show', revocacion_baja_registro %></td>
+        <td><%= link_to 'Edit', edit_revocacion_baja_registro_path(revocacion_baja_registro) %></td>
+        <td><%= link_to 'Destroy', revocacion_baja_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Revocacion Baja Registro', new_revocacion_baja_registro_path %>

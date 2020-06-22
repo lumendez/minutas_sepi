@@ -1,0 +1,2 @@
+module RevocacionBajaRegistrosHelper
+end
