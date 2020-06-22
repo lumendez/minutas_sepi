@@ -14,9 +14,9 @@
     <% @programa_posgrado_registros.each do |programa_posgrado_registro| %>
       <tr>
         <td><%= programa_posgrado_registro.nombre %></td>
-        <td><%= link_to 'Show', programa_posgrado_registro %></td>
-        <td><%= link_to 'Edit', edit_programa_posgrado_registro_path(programa_posgrado_registro) %></td>
-        <td><%= link_to 'Destroy', programa_posgrado_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', programa_posgrado_registro %></td>
+        <td><%= link_to 'Editar', edit_programa_posgrado_registro_path(programa_posgrado_registro) %></td>
+        <td><%= link_to 'Eliminar', programa_posgrado_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Programa Posgrado Registro', new_programa_posgrado_registro_path %>
+<%= link_to 'Nuevo Programa Posgrado Registro', new_programa_posgrado_registro_path %>

@@ -14,9 +14,9 @@
     <% @tipo_casos.each do |tipo_caso| %>
       <tr>
         <td><%= tipo_caso.nombre %></td>
-        <td><%= link_to 'Show', tipo_caso %></td>
-        <td><%= link_to 'Edit', edit_tipo_caso_path(tipo_caso) %></td>
-        <td><%= link_to 'Destroy', tipo_caso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', tipo_caso %></td>
+        <td><%= link_to 'Editar', edit_tipo_caso_path(tipo_caso) %></td>
+        <td><%= link_to 'Eliminar', tipo_caso, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Tipo Caso', new_tipo_caso_path %>
+<%= link_to 'Nuevo Tipo Caso', new_tipo_caso_path %>

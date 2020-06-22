@@ -22,9 +22,9 @@
         <td><%= cursar_unidad_aprendizaje_externa_registro.creditos %></td>
         <td><%= cursar_unidad_aprendizaje_externa_registro.unidad_academica %></td>
         <td><%= cursar_unidad_aprendizaje_externa_registro.caso_id %></td>
-        <td><%= link_to 'Show', cursar_unidad_aprendizaje_externa_registro %></td>
-        <td><%= link_to 'Edit', edit_cursar_unidad_aprendizaje_externa_registro_path(cursar_unidad_aprendizaje_externa_registro) %></td>
-        <td><%= link_to 'Destroy', cursar_unidad_aprendizaje_externa_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', cursar_unidad_aprendizaje_externa_registro %></td>
+        <td><%= link_to 'Editar', edit_cursar_unidad_aprendizaje_externa_registro_path(cursar_unidad_aprendizaje_externa_registro) %></td>
+        <td><%= link_to 'Eliminar', cursar_unidad_aprendizaje_externa_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Cursar Unidad Aprendizaje Externa Registro', new_cursar_unidad_aprendizaje_externa_registro_path %>
+<%= link_to 'Nuevo Cursar Unidad Aprendizaje Externa Registro', new_cursar_unidad_aprendizaje_externa_registro_path %>

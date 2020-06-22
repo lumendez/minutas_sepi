@@ -16,9 +16,9 @@
       <tr>
         <td><%= flexibilidad_academica_registro.nombre %></td>
         <td><%= flexibilidad_academica_registro.caso_id %></td>
-        <td><%= link_to 'Show', flexibilidad_academica_registro %></td>
-        <td><%= link_to 'Edit', edit_flexibilidad_academica_registro_path(flexibilidad_academica_registro) %></td>
-        <td><%= link_to 'Destroy', flexibilidad_academica_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', flexibilidad_academica_registro %></td>
+        <td><%= link_to 'Editar', edit_flexibilidad_academica_registro_path(flexibilidad_academica_registro) %></td>
+        <td><%= link_to 'Eliminar', flexibilidad_academica_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Flexibilidad Academica Registro', new_flexibilidad_academica_registro_path %>
+<%= link_to 'Nuevo Flexibilidad Academica Registro', new_flexibilidad_academica_registro_path %>

@@ -16,9 +16,9 @@
       <tr>
         <td><%= segundo_director_tesis_registro.nombre %></td>
         <td><%= segundo_director_tesis_registro.caso_id %></td>
-        <td><%= link_to 'Show', segundo_director_tesis_registro %></td>
-        <td><%= link_to 'Edit', edit_segundo_director_tesis_registro_path(segundo_director_tesis_registro) %></td>
-        <td><%= link_to 'Destroy', segundo_director_tesis_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', segundo_director_tesis_registro %></td>
+        <td><%= link_to 'Editar', edit_segundo_director_tesis_registro_path(segundo_director_tesis_registro) %></td>
+        <td><%= link_to 'Eliminar', segundo_director_tesis_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Segundo Director Tesis Registro', new_segundo_director_tesis_registro_path %>
+<%= link_to 'Nuevo Segundo Director Tesis Registro', new_segundo_director_tesis_registro_path %>

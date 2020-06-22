@@ -22,9 +22,9 @@
         <td><%= alumno.user.primer_apellido %></td>
         <td><%= alumno.user.segundo_apellido %></td>
         <td><%= alumno.programa_posgrado_registro.nombre %></td>
-        <td><%= link_to 'Show', alumno %></td>
-        <td><%= link_to 'Edit', edit_alumno_path(alumno) %></td>
-        <td><%= link_to 'Destroy', alumno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', alumno %></td>
+        <td><%= link_to 'Editar', edit_alumno_path(alumno) %></td>
+        <td><%= link_to 'Eliminar', alumno, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Alumno', new_alumno_path %>
+<%= link_to 'Nuevo Alumno', new_alumno_path %>

@@ -16,9 +16,9 @@
       <tr>
         <td><%= baja_asignatura_registro.asignatura_registro_id %></td>
         <td><%= baja_asignatura_registro.caso_id %></td>
-        <td><%= link_to 'Show', baja_asignatura_registro %></td>
-        <td><%= link_to 'Edit', edit_baja_asignatura_registro_path(baja_asignatura_registro) %></td>
-        <td><%= link_to 'Destroy', baja_asignatura_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', baja_asignatura_registro %></td>
+        <td><%= link_to 'Editar', edit_baja_asignatura_registro_path(baja_asignatura_registro) %></td>
+        <td><%= link_to 'Eliminar', baja_asignatura_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Baja Asignatura Registro', new_baja_asignatura_registro_path %>
+<%= link_to 'Nuevo Baja Asignatura Registro', new_baja_asignatura_registro_path %>

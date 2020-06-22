@@ -14,9 +14,9 @@
     <% @tema_tesis_registros.each do |tema_tesis_registro| %>
       <tr>
         <td><%= tema_tesis_registro.nombre %></td>
-        <td><%= link_to 'Show', tema_tesis_registro %></td>
-        <td><%= link_to 'Edit', edit_tema_tesis_registro_path(tema_tesis_registro) %></td>
-        <td><%= link_to 'Destroy', tema_tesis_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', tema_tesis_registro %></td>
+        <td><%= link_to 'Editar', edit_tema_tesis_registro_path(tema_tesis_registro) %></td>
+        <td><%= link_to 'Eliminar', tema_tesis_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Tema Tesis Registro', new_tema_tesis_registro_path %>
+<%= link_to 'Nuevo Tema Tesis Registro', new_tema_tesis_registro_path %>

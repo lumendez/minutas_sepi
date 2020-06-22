@@ -16,9 +16,9 @@
       <tr>
         <td><%= examen_obtencion_grado_registro.motivacion %></td>
         <td><%= examen_obtencion_grado_registro.caso_id %></td>
-        <td><%= link_to 'Show', examen_obtencion_grado_registro %></td>
-        <td><%= link_to 'Edit', edit_examen_obtencion_grado_registro_path(examen_obtencion_grado_registro) %></td>
-        <td><%= link_to 'Destroy', examen_obtencion_grado_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', examen_obtencion_grado_registro %></td>
+        <td><%= link_to 'Editar', edit_examen_obtencion_grado_registro_path(examen_obtencion_grado_registro) %></td>
+        <td><%= link_to 'Eliminar', examen_obtencion_grado_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Examen Obtencion Grado Registro', new_examen_obtencion_grado_registro_path %>
+<%= link_to 'Nuevo Examen Obtencion Grado Registro', new_examen_obtencion_grado_registro_path %>

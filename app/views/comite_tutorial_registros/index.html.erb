@@ -24,9 +24,9 @@
         <td><%= comite_tutorial_registro.cuarto_tutor %></td>
         <td><%= comite_tutorial_registro.quinto_tutor %></td>
         <td><%= comite_tutorial_registro.caso_id %></td>
-        <td><%= link_to 'Show', comite_tutorial_registro %></td>
-        <td><%= link_to 'Edit', edit_comite_tutorial_registro_path(comite_tutorial_registro) %></td>
-        <td><%= link_to 'Destroy', comite_tutorial_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', comite_tutorial_registro %></td>
+        <td><%= link_to 'Editar', edit_comite_tutorial_registro_path(comite_tutorial_registro) %></td>
+        <td><%= link_to 'Eliminar', comite_tutorial_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Comite Tutorial Registro', new_comite_tutorial_registro_path %>
+<%= link_to 'Nuevo Comite Tutorial Registro', new_comite_tutorial_registro_path %>
