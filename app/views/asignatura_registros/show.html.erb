@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @asignatura_registro.nombre %>
+</p>
+
+<p>
+  <strong>Clave:</strong>
+  <%= @asignatura_registro.clave %>
+</p>
+
+<p>
+  <strong>Creditos:</strong>
+  <%= @asignatura_registro.creditos %>
+</p>
+
+<p>
+  <strong>Programa posgrado registro:</strong>
+  <%= @asignatura_registro.programa_posgrado_registro_id %>
+</p>
+
+<%= link_to 'Edit', edit_asignatura_registro_path(@asignatura_registro) %> |
+<%= link_to 'Back', asignatura_registros_path %>
