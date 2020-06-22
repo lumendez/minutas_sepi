@@ -1,0 +1,1 @@
+json.partial! "examen_obtencion_grado_registros/examen_obtencion_grado_registro", examen_obtencion_grado_registro: @examen_obtencion_grado_registro

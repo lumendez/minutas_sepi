@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Motivacion:</strong>
+  <%= @examen_obtencion_grado_registro.motivacion %>
+</p>
+
+<p>
+  <strong>Caso:</strong>
+  <%= @examen_obtencion_grado_registro.caso_id %>
+</p>
+
+<%= link_to 'Edit', edit_examen_obtencion_grado_registro_path(@examen_obtencion_grado_registro) %> |
+<%= link_to 'Back', examen_obtencion_grado_registros_path %>

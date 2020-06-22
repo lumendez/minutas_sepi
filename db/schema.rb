@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_052917) do
+ActiveRecord::Schema.define(version: 2020_06_22_055541) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "boleta"
@@ -114,6 +114,14 @@ ActiveRecord::Schema.define(version: 2020_06_22_052917) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["caso_id"], name: "index_director_tesis_registros_on_caso_id"
+  end
+
+  create_table "examen_obtencion_grado_registros", force: :cascade do |t|
+    t.text "motivacion"
+    t.integer "caso_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["caso_id"], name: "index_examen_obtencion_grado_registros_on_caso_id"
   end
 
   create_table "flexibilidad_academica_registros", force: :cascade do |t|
@@ -224,6 +232,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_052917) do
   add_foreign_key "comite_tutorial_registros", "casos"
   add_foreign_key "cursar_unidad_aprendizaje_externa_registros", "casos"
   add_foreign_key "director_tesis_registros", "casos"
+  add_foreign_key "examen_obtencion_grado_registros", "casos"
   add_foreign_key "flexibilidad_academica_registros", "casos"
   add_foreign_key "recursamiento_otra_unidad_registros", "casos"
   add_foreign_key "revocacion_baja_registros", "casos"
