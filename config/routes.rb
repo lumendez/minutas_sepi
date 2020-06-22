@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :baja_asignatura_registros
   resources :agregar_asignatura_registros
   resources :asignatura_registros
   resources :cambio_maestria_doctorado_registros

@@ -1,0 +1,6 @@
+<%= form.fields_for :baja_asignatura_registros do |baja_asignatura_registros_form| %>
+  <div class="form-group col-sm-10">
+    <%= baja_asignatura_registros_form.label :asignatura_registro_id, 'Elija por favor' %>
+    <%= baja_asignatura_registros_form.collection_select(:asignatura_registro_id, AsignaturaRegistro.where(programa_posgrado_registro: @alumno_actual.programa_posgrado_registro_id).order(nombre: :asc), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+<% end %>

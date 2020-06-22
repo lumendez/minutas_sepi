@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_073131) do
+ActiveRecord::Schema.define(version: 2020_06_22_075144) do
 
   create_table "agregar_asignatura_registros", force: :cascade do |t|
     t.integer "asignatura_registro_id", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2020_06_22_073131) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["programa_posgrado_registro_id"], name: "index_asignatura_registros_on_programa_posgrado_registro_id"
+  end
+
+  create_table "baja_asignatura_registros", force: :cascade do |t|
+    t.integer "asignatura_registro_id", null: false
+    t.integer "caso_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["asignatura_registro_id"], name: "index_baja_asignatura_registros_on_asignatura_registro_id"
+    t.index ["caso_id"], name: "index_baja_asignatura_registros_on_caso_id"
   end
 
   create_table "baja_temporal_registros", force: :cascade do |t|
@@ -272,6 +281,8 @@ ActiveRecord::Schema.define(version: 2020_06_22_073131) do
   add_foreign_key "alumnos", "users"
   add_foreign_key "ampliacion_semestre_registros", "casos"
   add_foreign_key "asignatura_registros", "programa_posgrado_registros"
+  add_foreign_key "baja_asignatura_registros", "asignatura_registros"
+  add_foreign_key "baja_asignatura_registros", "casos"
   add_foreign_key "baja_temporal_registros", "casos"
   add_foreign_key "cambio_comision_revisora_registros", "casos"
   add_foreign_key "cambio_comite_tutorial_registros", "casos"

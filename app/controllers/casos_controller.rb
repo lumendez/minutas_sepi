@@ -37,6 +37,7 @@ class CasosController < ApplicationController
     @caso.ampliacion_semestre_registros.build
     @caso.cambio_maestria_doctorado_registros.build
     @caso.agregar_asignatura_registros.build
+    @caso.baja_asignatura_registros.build
   end
 
   # GET /casos/1/edit
@@ -112,6 +113,7 @@ class CasosController < ApplicationController
          baja_temporal_registros_attributes: [:id, :motivacion, :caso_id],
          ampliacion_semestre_registros_attributes: [:id, :motivacion, :caso_id],
          cambio_maestria_doctorado_registros_attributes: [:id, :motivacion, :caso_id],
-         agregar_asignatura_registros_attributes: [:id, :asignatura_registro_id, :caso_id])
+         agregar_asignatura_registros_attributes: [:id, :asignatura_registro_id, :caso_id],
+         baja_asignatura_registros_attributes: [:id, :asignatura_registro_id, :caso_id])
     end
 end

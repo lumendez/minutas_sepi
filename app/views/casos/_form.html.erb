@@ -91,6 +91,9 @@
         else if (event.target.value == 20){
           resultado.innerHTML = `<%= j render partial: "casos/cambio_maestria_doctorado_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 21){
+          resultado.innerHTML = `<%= j render partial: "casos/baja_asignatura_registro", locals:{form: form} %>`;
+        }
     });
   </script>
 <% end %>
