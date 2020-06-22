@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Baja Temporal Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Motivacion</th>
+      <th>Caso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @baja_temporal_registros.each do |baja_temporal_registro| %>
+      <tr>
+        <td><%= baja_temporal_registro.motivacion %></td>
+        <td><%= baja_temporal_registro.caso_id %></td>
+        <td><%= link_to 'Show', baja_temporal_registro %></td>
+        <td><%= link_to 'Edit', edit_baja_temporal_registro_path(baja_temporal_registro) %></td>
+        <td><%= link_to 'Destroy', baja_temporal_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Baja Temporal Registro', new_baja_temporal_registro_path %>

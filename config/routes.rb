@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :baja_temporal_registros
   resources :examen_obtencion_grado_registros
   resources :solicitud_abierta_registros
   resources :segundo_director_tesis_registros

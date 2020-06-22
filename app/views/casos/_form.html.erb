@@ -79,6 +79,9 @@
         else if (event.target.value == 17){
           resultado.innerHTML = `<%= j render partial: "casos/examen_obtencion_grado_registro", locals:{form: form} %>`;
         }
+        else if (event.target.value == 18){
+          resultado.innerHTML = `<%= j render partial: "casos/baja_temporal_registro", locals:{form: form} %>`;
+        }
     });
   </script>
 <% end %>

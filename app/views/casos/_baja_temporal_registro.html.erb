@@ -1,0 +1,6 @@
+<%= form.fields_for :baja_temporal_registros do |baja_temporal_registros_form| %>
+  <div class="form-group col-sm-10">
+    <%= baja_temporal_registros_form.label :motivacion, 'Escriba por favor el fundamento o motivacion de la petición' %>
+    <%= baja_temporal_registros_form.text_area :motivacion, class: 'form-control' %>
+  </div>
+<% end %>

@@ -32,6 +32,7 @@ class CasosController < ApplicationController
     @caso.segundo_director_tesis_registros.build
     @caso.solicitud_abierta_registros.build
     @caso.examen_obtencion_grado_registros.build
+    @caso.baja_temporal_registros.build
   end
 
   # GET /casos/1/edit
@@ -103,6 +104,7 @@ class CasosController < ApplicationController
          revocacion_baja_registros_attributes: [:id, :motivacion, :caso_id],
          segundo_director_tesis_registros_attributes: [:id, :nombre, :caso_id],
          solicitud_abierta_registros_attributes: [:id, :asunto, :motivacion, :caso_id],
-         examen_obtencion_grado_registros_attributes: [:id, :motivacion, :caso_id])
+         examen_obtencion_grado_registros_attributes: [:id, :motivacion, :caso_id],
+         baja_temporal_registros_attributes: [:id, :motivacion, :caso_id])
     end
 end

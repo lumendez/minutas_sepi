@@ -1,0 +1,27 @@
+<%= form_with(model: baja_temporal_registro, local: true) do |form| %>
+  <% if baja_temporal_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(baja_temporal_registro.errors.count, "error") %> prohibited this baja_temporal_registro from being saved:</h2>
+
+      <ul>
+        <% baja_temporal_registro.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :motivacion %>
+    <%= form.text_area :motivacion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caso_id %>
+    <%= form.text_field :caso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
