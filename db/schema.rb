@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_201707) do
+ActiveRecord::Schema.define(version: 2020_06_26_032653) do
 
   create_table "agregar_asignatura_registros", force: :cascade do |t|
     t.integer "asignatura_registro_id", null: false
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_201707) do
     t.integer "alumno_id", null: false
     t.boolean "validacion_cuerpo_academico", default: false
     t.boolean "validacion_asuntos_escolares", default: false
+    t.boolean "validacion_colegio_profesores", default: false
     t.index ["alumno_id"], name: "index_casos_on_alumno_id"
     t.index ["tipo_caso_id"], name: "index_casos_on_tipo_caso_id"
   end

@@ -17,71 +17,91 @@ Antes de continuar <%= link_to 'captura tu boleta y CVU', new_alumno_path %>
 <br>
 <br>
 <% if @casos_alumno.present? %>
-  <% @casos_alumno.each do |caso| %>
-    <div class="row">
-				<div class="col-md-12">
-					<div class="page-header">
-					  <h1><%= caso.tipo_caso.nombre %></h1>
-					</div>
-					<ul class="timeline timeline-horizontal">
-						<li class="timeline-item">
-							<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Solicitud</h4>
-									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= caso.created_at %></small></p>
-								</div>
-								<div class="timeline-body">
-									<p>Registrado en el sistema</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-item">
-              <% if caso.validacion_cuerpo_academico == false %>
-							<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
-              <% else %>
-              <div class="timeline-badge sucess"><i class="glyphicon glyphicon-check"></i></div>
-              <% end %>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Cuerpo académico</h4>
-									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>-</small></p>
-								</div>
-								<div class="timeline-body">
-									<p>Validado: <%= caso.validacion_cuerpo_academico ? 'Si' : 'No' %></p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-item">
-              <% if caso.validacion_asuntos_escolares == false %>
-							<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
-              <% else %>
-              <div class="timeline-badge sucess"><i class="glyphicon glyphicon-check"></i></div>
-              <% end %>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Asuntos escolares</h4>
-									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>-</small></p>
-								</div>
-								<div class="timeline-body">
-									<p>Validado: <%= caso.validacion_asuntos_escolares ? 'Si' : 'No' %></p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-item">
-							<div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Integrado a minuta</h4>
-									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>-</small></p>
-								</div>
-								<div class="timeline-body">
-									<p>Pendiente</p>
-								</div>
-							</div>
-						</li>
-					</ul>
-			</div>
-    </div>
-    <% end %>
-  <% end %>
+<div class="table-responsive">
+  <table class="table align-items-center table-flush">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" class="sort" data-sort="name" rowspan="2">Solicitud</th>
+        <th scope="col" class="sort" data-sort="budget" rowspan="2">Fecha de solicitud</th>
+        <th scope="col" class="sort" data-sort="status" colspan="3" style="text-align:center;">Validación</th>
+        <th scope="col" class="sort" data-sort="completion" rowspan="2">Integración a minuta</th>
+      </tr>
+      <tr>
+        <th>Cuerpo académico</th>
+        <th>Ansuntos escolares</th>
+        <th>Colegio de profesores</th>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <% @casos_alumno.each do |caso| %>
+      <tr>
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <span class="name mb-0 text-sm"><%= caso.tipo_caso.nombre %></span>
+            </div>
+          </div>
+        </th>
+        <td>
+          <span class="badge badge-dot mr-4">
+            <span class="status"><%= caso.creado %></span>
+          </span>
+        </td>
+        <td>
+          <span class="badge badge-dot mr-4">
+            <% if caso.validacion_cuerpo_academico == false %>
+            <i class="bg-warning"></i>
+            <span class="status">Pendiente</span>
+            <% else %>
+            <i class="bg-success"></i>
+            <span class="status">Completada</span>
+            <% end %>
+          </span>
+        </td>
+        <td>
+          <span class="badge badge-dot mr-4">
+            <% if caso.validacion_asuntos_escolares == false %>
+            <i class="bg-warning"></i>
+            <span class="status">Pendiente</span>
+            <% else %>
+            <i class="bg-success"></i>
+            <span class="status">Completada</span>
+            <% end %>
+          </span>
+        </td>
+        <td>
+          <span class="badge badge-dot mr-4">
+            <% if caso.validacion_colegio_profesores == false %>
+            <i class="bg-warning"></i>
+            <span class="status">Pendiente</span>
+            <% else %>
+            <i class="bg-success"></i>
+            <span class="status">Completada</span>
+            <% end %>
+          </span>
+        </td>
+        <td>
+          <% if caso.validacion_cuerpo_academico == false && caso.validacion_asuntos_escolares == false && caso.validacion_colegio_profesores == false %>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == false && caso.validacion_colegio_profesores == false %>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == true && caso.validacion_colegio_profesores == false %>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == true && caso.validacion_colegio_profesores == true %>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Caso integrado</div>
+          </div>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>
