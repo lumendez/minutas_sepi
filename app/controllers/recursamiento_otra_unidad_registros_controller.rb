@@ -1,4 +1,5 @@
 class RecursamientoOtraUnidadRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recursamiento_otra_unidad_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /recursamiento_otra_unidad_registros

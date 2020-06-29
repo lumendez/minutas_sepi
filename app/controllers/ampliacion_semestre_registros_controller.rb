@@ -1,4 +1,5 @@
 class AmpliacionSemestreRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_ampliacion_semestre_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /ampliacion_semestre_registros

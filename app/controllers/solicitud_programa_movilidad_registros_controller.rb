@@ -1,4 +1,5 @@
 class SolicitudProgramaMovilidadRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_solicitud_programa_movilidad_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /solicitud_programa_movilidad_registros

@@ -1,4 +1,5 @@
 class RevocacionBajaRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_revocacion_baja_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /revocacion_baja_registros

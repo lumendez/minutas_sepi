@@ -2800,7 +2800,7 @@
 */
 :root
 {
-    --blue: #5e72e4;
+    --blue: #007bff;
     --indigo: #5603ad;
     --purple: #8965e0;
     --pink: #f3a4b5;
@@ -2815,7 +2815,7 @@
     --gray-dark: #32325d;
     --light: #ced4da;
     --lighter: #e9ecef;
-    --primary: #5e72e4;
+    --primary: #007bff;
     --secondary: #f7fafc;
     --success: #2dce89;
     --info: #11cdef;
@@ -3000,7 +3000,7 @@ a
 {
     text-decoration: none;
 
-    color: #5e72e4;
+    color: #007bff;
     background-color: transparent;
 }
 a:hover
@@ -19933,12 +19933,6 @@ button.bg-darker:focus
     color: #5e72e4 !important;
 }
 
-a.text-primary:hover,
-a.text-primary:focus
-{
-    color: #233dd2 !important;
-}
-
 .text-secondary
 {
     color: #f7fafc !important;
@@ -22236,11 +22230,11 @@ a.btn-icon-only
 }
 .form-control:focus::-ms-input-placeholder
 {
-    color: #adb5bd;
+    color: #007bff;
 }
 .form-control:focus::placeholder
 {
-    color: #adb5bd;
+    color: #007bff;
 }
 
 .form-control-lg
@@ -22296,7 +22290,7 @@ textarea[resize='horizontal']
 }
 .form-control-muted:focus
 {
-    background-color: #fcfdff;
+    background-color: #007bff;
 }
 
 .form-control-alternative
@@ -22438,13 +22432,13 @@ textarea[resize='horizontal']
 .focused .input-group-text
 {
     color: #8898aa;
-    border-color: #5e72e4;
+    border-color: #007bff;
     background-color: #fff;
 }
 
 .focused .form-control
 {
-    border-color: #5e72e4;
+    border-color: #007bff;
 }
 
 .focused .input-group-flush

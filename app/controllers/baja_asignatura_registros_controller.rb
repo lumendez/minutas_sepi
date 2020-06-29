@@ -1,4 +1,5 @@
 class BajaAsignaturaRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_baja_asignatura_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /baja_asignatura_registros

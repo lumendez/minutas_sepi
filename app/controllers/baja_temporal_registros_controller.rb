@@ -1,4 +1,5 @@
 class BajaTemporalRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_baja_temporal_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /baja_temporal_registros

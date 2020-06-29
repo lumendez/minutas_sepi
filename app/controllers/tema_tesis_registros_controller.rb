@@ -1,4 +1,5 @@
 class TemaTesisRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tema_tesis_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /tema_tesis_registros

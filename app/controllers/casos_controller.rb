@@ -1,4 +1,5 @@
 class CasosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_caso, only: [:show, :edit, :update, :destroy]
 
   # GET /casos

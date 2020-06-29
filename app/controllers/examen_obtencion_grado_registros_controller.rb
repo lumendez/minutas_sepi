@@ -1,4 +1,5 @@
 class ExamenObtencionGradoRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_examen_obtencion_grado_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /examen_obtencion_grado_registros

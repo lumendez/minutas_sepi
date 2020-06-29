@@ -1,4 +1,5 @@
 class CambioDirectorTesisRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cambio_director_tesis_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /cambio_director_tesis_registros

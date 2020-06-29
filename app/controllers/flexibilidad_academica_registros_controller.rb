@@ -1,4 +1,5 @@
 class FlexibilidadAcademicaRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_flexibilidad_academica_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /flexibilidad_academica_registros

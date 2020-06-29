@@ -1,4 +1,5 @@
 class SegundoDirectorTesisRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_segundo_director_tesis_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /segundo_director_tesis_registros

@@ -1,4 +1,5 @@
 class ComiteTutorialRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_comite_tutorial_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /comite_tutorial_registros

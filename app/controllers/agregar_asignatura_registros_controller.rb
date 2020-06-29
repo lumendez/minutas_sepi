@@ -1,4 +1,5 @@
 class AgregarAsignaturaRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_agregar_asignatura_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /agregar_asignatura_registros

@@ -1,4 +1,5 @@
 class SolicitudAbiertaRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_solicitud_abierta_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /solicitud_abierta_registros

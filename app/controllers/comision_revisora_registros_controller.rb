@@ -1,4 +1,5 @@
 class ComisionRevisoraRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_comision_revisora_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /comision_revisora_registros

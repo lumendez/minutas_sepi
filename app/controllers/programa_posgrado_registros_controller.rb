@@ -1,4 +1,5 @@
 class ProgramaPosgradoRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_programa_posgrado_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /programa_posgrado_registros

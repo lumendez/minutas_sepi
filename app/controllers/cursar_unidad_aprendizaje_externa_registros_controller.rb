@@ -1,4 +1,5 @@
 class CursarUnidadAprendizajeExternaRegistrosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cursar_unidad_aprendizaje_externa_registro, only: [:show, :edit, :update, :destroy]
 
   # GET /cursar_unidad_aprendizaje_externa_registros
