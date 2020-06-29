@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'font_awesome5_rails'
 # Para la localización de Devise
 gem 'devise-i18n'
 # Reduces boot times through caching; required in config/boot.rb

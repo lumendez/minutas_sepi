@@ -1,107 +1,103 @@
 <% if @alumno.present? %>
-<div class="row">
-  <div class="col-md-4">
-    <div class="row no-gutters border rounded">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-2 text-primary">Usuario</strong>
-        <h3 class="mb-0"><%= current_user.nombre %></h3>
-        <p class="card-text mb-auto">Boleta: <%= @alumno.boleta %></p>
-        <p class="card-text mb-auto">CVU: <%= @alumno.cvu %></p>
-      </div>
-    </div>
-  </div>
-</div>
-<% else %>
-Antes de continuar <%= link_to 'captura tu boleta y CVU', new_alumno_path %>
-<% end %>
-<br>
-<br>
-<% if @casos_alumno.present? %>
-<div class="table-responsive">
-  <table class="table align-items-center table-flush">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col" class="sort" data-sort="name" rowspan="2">Solicitud</th>
-        <th scope="col" class="sort" data-sort="budget" rowspan="2">Fecha de solicitud</th>
-        <th scope="col" class="sort" data-sort="status" colspan="3" style="text-align:center;">Validación</th>
-        <th scope="col" class="sort" data-sort="completion" rowspan="2">Integración a minuta</th>
-      </tr>
-      <tr>
-        <th>Cuerpo académico</th>
-        <th>Ansuntos escolares</th>
-        <th>Colegio de profesores</th>
-      </tr>
-    </thead>
-    <tbody class="list">
-      <% @casos_alumno.each do |caso| %>
-      <tr>
-        <th scope="row">
-          <div class="media align-items-center">
-            <div class="media-body">
-              <span class="name mb-0 text-sm"><%= caso.tipo_caso.nombre %></span>
+  <% if @casos_alumno.present? %>
+  <div class="card">
+  <div class="table-responsive">
+    <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col" class="sort" data-sort="name" rowspan="2">Solicitud</th>
+          <th scope="col" class="sort" data-sort="budget" rowspan="2">Fecha de solicitud</th>
+          <th scope="col" class="sort" data-sort="status" colspan="3" style="text-align:center;">Validación</th>
+          <th scope="col" class="sort" data-sort="completion" rowspan="2">Integración a minuta</th>
+        </tr>
+        <tr>
+          <th>Cuerpo académico</th>
+          <th>Ansuntos escolares</th>
+          <th>Colegio de profesores</th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        <% @casos_alumno.each do |caso| %>
+        <tr>
+          <th scope="row">
+            <div class="media align-items-center">
+              <div class="media-body">
+                <span class="name mb-0 text-sm"><%= caso.tipo_caso.nombre %></span>
+              </div>
             </div>
-          </div>
-        </th>
-        <td>
-          <span class="badge badge-dot mr-4">
-            <span class="status"><%= caso.creado %></span>
-          </span>
-        </td>
-        <td>
-          <span class="badge badge-dot mr-4">
-            <% if caso.validacion_cuerpo_academico == false %>
-            <i class="bg-warning"></i>
-            <span class="status">Pendiente</span>
+          </th>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <span class="status"><%= caso.creado %></span>
+            </span>
+          </td>
+          <td style="text-align:center;">
+            <span class="badge badge-dot mr-4">
+              <% if caso.validacion_cuerpo_academico == false %>
+                <div class="btn-warning btn-circle btn-sm" align="center">
+                  <i class="fas fa-clock"></i>
+                </div>
+              <% else %>
+                <div class="btn-success btn-circle btn-sm" align="center">
+                  <i class="fas fa-check"></i>
+                </div>
+              <% end %>
+            </span>
+          </td>
+          <td style="text-align:center;">
+            <span class="badge badge-dot mr-4">
+              <% if caso.validacion_asuntos_escolares == false %>
+              <i class="bg-warning"></i>
+              <span class="status">Pendiente</span>
+              <% else %>
+              <div class="btn-success btn-circle btn-sm" align="center">
+                <i class="fas fa-check"></i>
+              </div>
+              <% end %>
+            </span>
+          </td>
+          <td style="text-align:center;">
+            <span class="badge badge-dot mr-4">
+              <% if caso.validacion_colegio_profesores == false %>
+              <i class="bg-warning"></i>
+              <span class="status">Pendiente</span>
+              <% else %>
+              <div class="btn-success btn-circle btn-sm" align="center">
+                <i class="fas fa-check"></i>
+              </div>
+              <% end %>
+            </span>
+          </td>
+          <td style="text-align:center;">
+            <% if caso.validacion_cuerpo_academico == false && caso.validacion_asuntos_escolares == false && caso.validacion_colegio_profesores == false %>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == false && caso.validacion_colegio_profesores == false %>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == true && caso.validacion_colegio_profesores == false %>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == true && caso.validacion_colegio_profesores == true %>
+            <div class="btn-success btn-circle btn-sm" align="center">
+              <i class="fas fa-flag"></i>
+            </div>
             <% else %>
-            <i class="bg-success"></i>
-            <span class="status">Completada</span>
+            <div class="btn-warning btn-circle btn-sm" align="center">
+              <i class="fas fa-clock"></i>
+            </div>
             <% end %>
-          </span>
-        </td>
-        <td>
-          <span class="badge badge-dot mr-4">
-            <% if caso.validacion_asuntos_escolares == false %>
-            <i class="bg-warning"></i>
-            <span class="status">Pendiente</span>
-            <% else %>
-            <i class="bg-success"></i>
-            <span class="status">Completada</span>
-            <% end %>
-          </span>
-        </td>
-        <td>
-          <span class="badge badge-dot mr-4">
-            <% if caso.validacion_colegio_profesores == false %>
-            <i class="bg-warning"></i>
-            <span class="status">Pendiente</span>
-            <% else %>
-            <i class="bg-success"></i>
-            <span class="status">Completada</span>
-            <% end %>
-          </span>
-        </td>
-        <td>
-          <% if caso.validacion_cuerpo_academico == false && caso.validacion_asuntos_escolares == false && caso.validacion_colegio_profesores == false %>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == false && caso.validacion_colegio_profesores == false %>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == true && caso.validacion_colegio_profesores == false %>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <% elsif caso.validacion_cuerpo_academico == true && caso.validacion_asuntos_escolares == true && caso.validacion_colegio_profesores == true %>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Caso integrado</div>
-          </div>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <% end %>
+  <% else %>
+   <%= link_to 'Antes de continuar captura tu boleta, CVU y programa', new_alumno_path, class:"btn btn-info btn-lg btn-block"%>
 <% end %>
