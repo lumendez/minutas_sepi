@@ -19,8 +19,12 @@ class User < ApplicationRecord
     self.tipo_usuario.nombre == "Coordinador"
   end
 
-  def sepi?
-    self.tipo_usuario.nombre == "SEPI"
+  def asuntos_escolares?
+    self.tipo_usuario.nombre == "Asuntos escolares"
+  end
+
+  def colegio_profesores?
+    self.tipo_usuario.nombre == "Colegio profesores"
   end
 
   private

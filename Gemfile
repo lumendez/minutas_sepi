@@ -34,6 +34,8 @@ gem 'jquery-rails'
 gem 'font_awesome5_rails'
 # Para la localización de Devise
 gem 'devise-i18n'
+# Para los permisos del sistema
+gem "pundit"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

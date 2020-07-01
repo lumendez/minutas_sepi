@@ -6,6 +6,7 @@ class AgregarAsignaturaRegistrosController < ApplicationController
   # GET /agregar_asignatura_registros.json
   def index
     @agregar_asignatura_registros = AgregarAsignaturaRegistro.all
+    authorize @agregar_asignatura_registros
   end
 
   # GET /agregar_asignatura_registros/1
