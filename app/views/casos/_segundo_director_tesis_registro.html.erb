@@ -1,6 +1,6 @@
 <%= form.fields_for :segundo_director_tesis_registros do |segundo_director_tesis_registros_form| %>
   <div class="form-group col-sm-3">
     <%= segundo_director_tesis_registros_form.label :nombre %>
-    <%= segundo_director_tesis_registros_form.text_field :nombre, class: 'form-control' %>
+    <%= segundo_director_tesis_registros_form.text_field :nombre, class: 'form-control', :required => true%>
   </div>
 <% end %>

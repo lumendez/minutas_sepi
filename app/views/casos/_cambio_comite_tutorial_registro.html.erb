@@ -1,22 +1,22 @@
 <%= form.fields_for :cambio_comite_tutorial_registros do |cambio_comite_tutorial_registros_form| %>
   <div class="form-group col-sm-3">
     <%= cambio_comite_tutorial_registros_form.label :primer_tutor, 'Primer tutor' %>
-    <%= cambio_comite_tutorial_registros_form.text_field :primer_tutor, class: 'form-control' %>
+    <%= cambio_comite_tutorial_registros_form.text_field :primer_tutor, class: 'form-control', :required => true %>
   </div>
   <div class="form-group col-sm-3">
     <%= cambio_comite_tutorial_registros_form.label :segundo_tutor, 'Segundo tutor' %>
-    <%= cambio_comite_tutorial_registros_form.text_field :segundo_tutor, class: 'form-control' %>
+    <%= cambio_comite_tutorial_registros_form.text_field :segundo_tutor, class: 'form-control', :required => true %>
   </div>
   <div class="form-group col-sm-3">
     <%= cambio_comite_tutorial_registros_form.label :tercer_tutor, 'Tercer tutor' %>
-    <%= cambio_comite_tutorial_registros_form.text_field :tercer_tutor, class: 'form-control' %>
+    <%= cambio_comite_tutorial_registros_form.text_field :tercer_tutor, class: 'form-control', :required => true%>
   </div>
   <div class="form-group col-sm-3">
     <%= cambio_comite_tutorial_registros_form.label :cuarto_tutor, 'Cuarto tutor' %>
-    <%= cambio_comite_tutorial_registros_form.text_field :cuarto_tutor, class: 'form-control' %>
+    <%= cambio_comite_tutorial_registros_form.text_field :cuarto_tutor, class: 'form-control', :required => true %>
   </div>
   <div class="form-group col-sm-3">
     <%= cambio_comite_tutorial_registros_form.label :quinto_tutor, 'Quinto tutor' %>
-    <%= cambio_comite_tutorial_registros_form.text_field :quinto_tutor, class: 'form-control' %>
+    <%= cambio_comite_tutorial_registros_form.text_field :quinto_tutor, class: 'form-control', :required => true %>
   </div>
 <% end %>

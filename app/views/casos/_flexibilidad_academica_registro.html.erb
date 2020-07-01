@@ -1,6 +1,6 @@
 <%= form.fields_for :flexibilidad_academica_registros do |flexibilidad_academica_registros_form| %>
   <div class="form-group col-sm-3">
     <%= flexibilidad_academica_registros_form.label :nombre, 'Nombre del semestre de flexibilidad' %>
-    <%= flexibilidad_academica_registros_form.text_field :nombre, class: 'form-control' %>
+    <%= flexibilidad_academica_registros_form.text_field :nombre, class: 'form-control', minlength: '20', :required => true %>%>
   </div>
 <% end %>

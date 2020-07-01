@@ -1,6 +1,6 @@
 <%= form.fields_for :cambio_tema_tesis_registros do |cambio_tema_tesis_registros_form| %>
   <div class="form-group col-sm-3">
     <%= cambio_tema_tesis_registros_form.label :nombre, 'Nuevo tema de tesis' %>
-    <%= cambio_tema_tesis_registros_form.text_field :nombre, class: 'form-control' %>
+    <%= cambio_tema_tesis_registros_form.text_field :nombre, class: 'form-control', :required => true  %>
   </div>
 <% end %>
