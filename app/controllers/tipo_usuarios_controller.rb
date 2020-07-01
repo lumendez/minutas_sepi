@@ -29,7 +29,7 @@ class TipoUsuariosController < ApplicationController
 
     respond_to do |format|
       if @tipo_usuario.save
-        format.html { redirect_to @tipo_usuario, notice: 'Tipo usuario was successfully created.' }
+        format.html { redirect_to @tipo_usuario, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @tipo_usuario }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class TipoUsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_usuario.update(tipo_usuario_params)
-        format.html { redirect_to @tipo_usuario, notice: 'Tipo usuario was successfully updated.' }
+        format.html { redirect_to @tipo_usuario, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @tipo_usuario }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class TipoUsuariosController < ApplicationController
   def destroy
     @tipo_usuario.destroy
     respond_to do |format|
-      format.html { redirect_to tipo_usuarios_url, notice: 'Tipo usuario was successfully destroyed.' }
+      format.html { redirect_to tipo_usuarios_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

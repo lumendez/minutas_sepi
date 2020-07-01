@@ -29,7 +29,7 @@ class DirectorTesisRegistrosController < ApplicationController
 
     respond_to do |format|
       if @director_tesis_registro.save
-        format.html { redirect_to @director_tesis_registro, notice: 'Director tesis registro was successfully created.' }
+        format.html { redirect_to @director_tesis_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @director_tesis_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class DirectorTesisRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @director_tesis_registro.update(director_tesis_registro_params)
-        format.html { redirect_to @director_tesis_registro, notice: 'Director tesis registro was successfully updated.' }
+        format.html { redirect_to @director_tesis_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @director_tesis_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class DirectorTesisRegistrosController < ApplicationController
   def destroy
     @director_tesis_registro.destroy
     respond_to do |format|
-      format.html { redirect_to director_tesis_registros_url, notice: 'Director tesis registro was successfully destroyed.' }
+      format.html { redirect_to director_tesis_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

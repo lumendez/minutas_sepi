@@ -29,7 +29,7 @@ class CursarUnidadAprendizajeExternaRegistrosController < ApplicationController
 
     respond_to do |format|
       if @cursar_unidad_aprendizaje_externa_registro.save
-        format.html { redirect_to @cursar_unidad_aprendizaje_externa_registro, notice: 'Cursar unidad aprendizaje externa registro was successfully created.' }
+        format.html { redirect_to @cursar_unidad_aprendizaje_externa_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @cursar_unidad_aprendizaje_externa_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CursarUnidadAprendizajeExternaRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @cursar_unidad_aprendizaje_externa_registro.update(cursar_unidad_aprendizaje_externa_registro_params)
-        format.html { redirect_to @cursar_unidad_aprendizaje_externa_registro, notice: 'Cursar unidad aprendizaje externa registro was successfully updated.' }
+        format.html { redirect_to @cursar_unidad_aprendizaje_externa_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @cursar_unidad_aprendizaje_externa_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CursarUnidadAprendizajeExternaRegistrosController < ApplicationController
   def destroy
     @cursar_unidad_aprendizaje_externa_registro.destroy
     respond_to do |format|
-      format.html { redirect_to cursar_unidad_aprendizaje_externa_registros_url, notice: 'Cursar unidad aprendizaje externa registro was successfully destroyed.' }
+      format.html { redirect_to cursar_unidad_aprendizaje_externa_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

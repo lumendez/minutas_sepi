@@ -29,7 +29,7 @@ class SolicitudProgramaMovilidadRegistrosController < ApplicationController
 
     respond_to do |format|
       if @solicitud_programa_movilidad_registro.save
-        format.html { redirect_to @solicitud_programa_movilidad_registro, notice: 'Solicitud programa movilidad registro was successfully created.' }
+        format.html { redirect_to @solicitud_programa_movilidad_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @solicitud_programa_movilidad_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SolicitudProgramaMovilidadRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @solicitud_programa_movilidad_registro.update(solicitud_programa_movilidad_registro_params)
-        format.html { redirect_to @solicitud_programa_movilidad_registro, notice: 'Solicitud programa movilidad registro was successfully updated.' }
+        format.html { redirect_to @solicitud_programa_movilidad_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @solicitud_programa_movilidad_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SolicitudProgramaMovilidadRegistrosController < ApplicationController
   def destroy
     @solicitud_programa_movilidad_registro.destroy
     respond_to do |format|
-      format.html { redirect_to solicitud_programa_movilidad_registros_url, notice: 'Solicitud programa movilidad registro was successfully destroyed.' }
+      format.html { redirect_to solicitud_programa_movilidad_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

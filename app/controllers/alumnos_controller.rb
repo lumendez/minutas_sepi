@@ -33,7 +33,7 @@ class AlumnosController < ApplicationController
 
     respond_to do |format|
       if @alumno.save
-        format.html { redirect_to @alumno, notice: 'Alumno was successfully created.' }
+        format.html { redirect_to @alumno, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @alumno }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class AlumnosController < ApplicationController
   def update
     respond_to do |format|
       if @alumno.update(alumno_params)
-        format.html { redirect_to @alumno, notice: 'Alumno was successfully updated.' }
+        format.html { redirect_to @alumno, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @alumno }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class AlumnosController < ApplicationController
   def destroy
     @alumno.destroy
     respond_to do |format|
-      format.html { redirect_to alumnos_url, notice: 'Alumno was successfully destroyed.' }
+      format.html { redirect_to alumnos_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

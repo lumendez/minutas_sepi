@@ -29,7 +29,7 @@ class TipoCasosController < ApplicationController
 
     respond_to do |format|
       if @tipo_caso.save
-        format.html { redirect_to @tipo_caso, notice: 'Tipo caso was successfully created.' }
+        format.html { redirect_to @tipo_caso, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @tipo_caso }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class TipoCasosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_caso.update(tipo_caso_params)
-        format.html { redirect_to @tipo_caso, notice: 'Tipo caso was successfully updated.' }
+        format.html { redirect_to @tipo_caso, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @tipo_caso }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class TipoCasosController < ApplicationController
   def destroy
     @tipo_caso.destroy
     respond_to do |format|
-      format.html { redirect_to tipo_casos_url, notice: 'Tipo caso was successfully destroyed.' }
+      format.html { redirect_to tipo_casos_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

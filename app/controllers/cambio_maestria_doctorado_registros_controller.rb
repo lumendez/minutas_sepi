@@ -29,7 +29,7 @@ class CambioMaestriaDoctoradoRegistrosController < ApplicationController
 
     respond_to do |format|
       if @cambio_maestria_doctorado_registro.save
-        format.html { redirect_to @cambio_maestria_doctorado_registro, notice: 'Cambio maestria doctorado registro was successfully created.' }
+        format.html { redirect_to @cambio_maestria_doctorado_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @cambio_maestria_doctorado_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CambioMaestriaDoctoradoRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @cambio_maestria_doctorado_registro.update(cambio_maestria_doctorado_registro_params)
-        format.html { redirect_to @cambio_maestria_doctorado_registro, notice: 'Cambio maestria doctorado registro was successfully updated.' }
+        format.html { redirect_to @cambio_maestria_doctorado_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @cambio_maestria_doctorado_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CambioMaestriaDoctoradoRegistrosController < ApplicationController
   def destroy
     @cambio_maestria_doctorado_registro.destroy
     respond_to do |format|
-      format.html { redirect_to cambio_maestria_doctorado_registros_url, notice: 'Cambio maestria doctorado registro was successfully destroyed.' }
+      format.html { redirect_to cambio_maestria_doctorado_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

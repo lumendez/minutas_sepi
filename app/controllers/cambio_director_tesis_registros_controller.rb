@@ -29,7 +29,7 @@ class CambioDirectorTesisRegistrosController < ApplicationController
 
     respond_to do |format|
       if @cambio_director_tesis_registro.save
-        format.html { redirect_to @cambio_director_tesis_registro, notice: 'Cambio director tesis registro was successfully created.' }
+        format.html { redirect_to @cambio_director_tesis_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @cambio_director_tesis_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CambioDirectorTesisRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @cambio_director_tesis_registro.update(cambio_director_tesis_registro_params)
-        format.html { redirect_to @cambio_director_tesis_registro, notice: 'Cambio director tesis registro was successfully updated.' }
+        format.html { redirect_to @cambio_director_tesis_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @cambio_director_tesis_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CambioDirectorTesisRegistrosController < ApplicationController
   def destroy
     @cambio_director_tesis_registro.destroy
     respond_to do |format|
-      format.html { redirect_to cambio_director_tesis_registros_url, notice: 'Cambio director tesis registro was successfully destroyed.' }
+      format.html { redirect_to cambio_director_tesis_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

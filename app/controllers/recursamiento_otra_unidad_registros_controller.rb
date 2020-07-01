@@ -29,7 +29,7 @@ class RecursamientoOtraUnidadRegistrosController < ApplicationController
 
     respond_to do |format|
       if @recursamiento_otra_unidad_registro.save
-        format.html { redirect_to @recursamiento_otra_unidad_registro, notice: 'Recursamiento otra unidad registro was successfully created.' }
+        format.html { redirect_to @recursamiento_otra_unidad_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @recursamiento_otra_unidad_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class RecursamientoOtraUnidadRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @recursamiento_otra_unidad_registro.update(recursamiento_otra_unidad_registro_params)
-        format.html { redirect_to @recursamiento_otra_unidad_registro, notice: 'Recursamiento otra unidad registro was successfully updated.' }
+        format.html { redirect_to @recursamiento_otra_unidad_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @recursamiento_otra_unidad_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class RecursamientoOtraUnidadRegistrosController < ApplicationController
   def destroy
     @recursamiento_otra_unidad_registro.destroy
     respond_to do |format|
-      format.html { redirect_to recursamiento_otra_unidad_registros_url, notice: 'Recursamiento otra unidad registro was successfully destroyed.' }
+      format.html { redirect_to recursamiento_otra_unidad_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

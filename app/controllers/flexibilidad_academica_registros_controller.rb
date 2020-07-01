@@ -29,7 +29,7 @@ class FlexibilidadAcademicaRegistrosController < ApplicationController
 
     respond_to do |format|
       if @flexibilidad_academica_registro.save
-        format.html { redirect_to @flexibilidad_academica_registro, notice: 'Flexibilidad academica registro was successfully created.' }
+        format.html { redirect_to @flexibilidad_academica_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @flexibilidad_academica_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class FlexibilidadAcademicaRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @flexibilidad_academica_registro.update(flexibilidad_academica_registro_params)
-        format.html { redirect_to @flexibilidad_academica_registro, notice: 'Flexibilidad academica registro was successfully updated.' }
+        format.html { redirect_to @flexibilidad_academica_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @flexibilidad_academica_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class FlexibilidadAcademicaRegistrosController < ApplicationController
   def destroy
     @flexibilidad_academica_registro.destroy
     respond_to do |format|
-      format.html { redirect_to flexibilidad_academica_registros_url, notice: 'Flexibilidad academica registro was successfully destroyed.' }
+      format.html { redirect_to flexibilidad_academica_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

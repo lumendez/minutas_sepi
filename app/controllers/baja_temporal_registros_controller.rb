@@ -29,7 +29,7 @@ class BajaTemporalRegistrosController < ApplicationController
 
     respond_to do |format|
       if @baja_temporal_registro.save
-        format.html { redirect_to @baja_temporal_registro, notice: 'Baja temporal registro was successfully created.' }
+        format.html { redirect_to @baja_temporal_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @baja_temporal_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class BajaTemporalRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @baja_temporal_registro.update(baja_temporal_registro_params)
-        format.html { redirect_to @baja_temporal_registro, notice: 'Baja temporal registro was successfully updated.' }
+        format.html { redirect_to @baja_temporal_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @baja_temporal_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class BajaTemporalRegistrosController < ApplicationController
   def destroy
     @baja_temporal_registro.destroy
     respond_to do |format|
-      format.html { redirect_to baja_temporal_registros_url, notice: 'Baja temporal registro was successfully destroyed.' }
+      format.html { redirect_to baja_temporal_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

@@ -29,7 +29,7 @@ class AsignaturaRegistrosController < ApplicationController
 
     respond_to do |format|
       if @asignatura_registro.save
-        format.html { redirect_to @asignatura_registro, notice: 'Asignatura registro was successfully created.' }
+        format.html { redirect_to @asignatura_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @asignatura_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class AsignaturaRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @asignatura_registro.update(asignatura_registro_params)
-        format.html { redirect_to @asignatura_registro, notice: 'Asignatura registro was successfully updated.' }
+        format.html { redirect_to @asignatura_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @asignatura_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class AsignaturaRegistrosController < ApplicationController
   def destroy
     @asignatura_registro.destroy
     respond_to do |format|
-      format.html { redirect_to asignatura_registros_url, notice: 'Asignatura registro was successfully destroyed.' }
+      format.html { redirect_to asignatura_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

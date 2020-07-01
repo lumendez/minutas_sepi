@@ -17,6 +17,7 @@ class AgregarAsignaturaRegistrosController < ApplicationController
   # GET /agregar_asignatura_registros/new
   def new
     @agregar_asignatura_registro = AgregarAsignaturaRegistro.new
+    authorize @agregar_asignatura_registro
   end
 
   # GET /agregar_asignatura_registros/1/edit
@@ -30,7 +31,7 @@ class AgregarAsignaturaRegistrosController < ApplicationController
 
     respond_to do |format|
       if @agregar_asignatura_registro.save
-        format.html { redirect_to @agregar_asignatura_registro, notice: 'Agregar asignatura registro was successfully created.' }
+        format.html { redirect_to @agregar_asignatura_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @agregar_asignatura_registro }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class AgregarAsignaturaRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @agregar_asignatura_registro.update(agregar_asignatura_registro_params)
-        format.html { redirect_to @agregar_asignatura_registro, notice: 'Agregar asignatura registro was successfully updated.' }
+        format.html { redirect_to @agregar_asignatura_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @agregar_asignatura_registro }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class AgregarAsignaturaRegistrosController < ApplicationController
   def destroy
     @agregar_asignatura_registro.destroy
     respond_to do |format|
-      format.html { redirect_to agregar_asignatura_registros_url, notice: 'Agregar asignatura registro was successfully destroyed.' }
+      format.html { redirect_to agregar_asignatura_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

@@ -6,6 +6,7 @@ class AmpliacionSemestreRegistrosController < ApplicationController
   # GET /ampliacion_semestre_registros.json
   def index
     @ampliacion_semestre_registros = AmpliacionSemestreRegistro.all
+    authorize @ampliacion_semestre_registros
   end
 
   # GET /ampliacion_semestre_registros/1
@@ -29,7 +30,7 @@ class AmpliacionSemestreRegistrosController < ApplicationController
 
     respond_to do |format|
       if @ampliacion_semestre_registro.save
-        format.html { redirect_to @ampliacion_semestre_registro, notice: 'Ampliacion semestre registro was successfully created.' }
+        format.html { redirect_to @ampliacion_semestre_registro, notice: 'La petición se creó correctamente.' }
         format.json { render :show, status: :created, location: @ampliacion_semestre_registro }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class AmpliacionSemestreRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @ampliacion_semestre_registro.update(ampliacion_semestre_registro_params)
-        format.html { redirect_to @ampliacion_semestre_registro, notice: 'Ampliacion semestre registro was successfully updated.' }
+        format.html { redirect_to @ampliacion_semestre_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @ampliacion_semestre_registro }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class AmpliacionSemestreRegistrosController < ApplicationController
   def destroy
     @ampliacion_semestre_registro.destroy
     respond_to do |format|
-      format.html { redirect_to ampliacion_semestre_registros_url, notice: 'Ampliacion semestre registro was successfully destroyed.' }
+      format.html { redirect_to ampliacion_semestre_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

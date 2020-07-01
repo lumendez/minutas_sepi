@@ -29,7 +29,7 @@ class CambioComisionRevisoraRegistrosController < ApplicationController
 
     respond_to do |format|
       if @cambio_comision_revisora_registro.save
-        format.html { redirect_to @cambio_comision_revisora_registro, notice: 'Cambio comision revisora registro was successfully created.' }
+        format.html { redirect_to @cambio_comision_revisora_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @cambio_comision_revisora_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CambioComisionRevisoraRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @cambio_comision_revisora_registro.update(cambio_comision_revisora_registro_params)
-        format.html { redirect_to @cambio_comision_revisora_registro, notice: 'Cambio comision revisora registro was successfully updated.' }
+        format.html { redirect_to @cambio_comision_revisora_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @cambio_comision_revisora_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CambioComisionRevisoraRegistrosController < ApplicationController
   def destroy
     @cambio_comision_revisora_registro.destroy
     respond_to do |format|
-      format.html { redirect_to cambio_comision_revisora_registros_url, notice: 'Cambio comision revisora registro was successfully destroyed.' }
+      format.html { redirect_to cambio_comision_revisora_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

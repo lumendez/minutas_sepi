@@ -29,7 +29,7 @@ class SolicitudAbiertaRegistrosController < ApplicationController
 
     respond_to do |format|
       if @solicitud_abierta_registro.save
-        format.html { redirect_to @solicitud_abierta_registro, notice: 'Solicitud abierta registro was successfully created.' }
+        format.html { redirect_to @solicitud_abierta_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @solicitud_abierta_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SolicitudAbiertaRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @solicitud_abierta_registro.update(solicitud_abierta_registro_params)
-        format.html { redirect_to @solicitud_abierta_registro, notice: 'Solicitud abierta registro was successfully updated.' }
+        format.html { redirect_to @solicitud_abierta_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @solicitud_abierta_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SolicitudAbiertaRegistrosController < ApplicationController
   def destroy
     @solicitud_abierta_registro.destroy
     respond_to do |format|
-      format.html { redirect_to solicitud_abierta_registros_url, notice: 'Solicitud abierta registro was successfully destroyed.' }
+      format.html { redirect_to solicitud_abierta_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

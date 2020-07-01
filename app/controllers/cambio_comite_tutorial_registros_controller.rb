@@ -29,7 +29,7 @@ class CambioComiteTutorialRegistrosController < ApplicationController
 
     respond_to do |format|
       if @cambio_comite_tutorial_registro.save
-        format.html { redirect_to @cambio_comite_tutorial_registro, notice: 'Cambio comite tutorial registro was successfully created.' }
+        format.html { redirect_to @cambio_comite_tutorial_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @cambio_comite_tutorial_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CambioComiteTutorialRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @cambio_comite_tutorial_registro.update(cambio_comite_tutorial_registro_params)
-        format.html { redirect_to @cambio_comite_tutorial_registro, notice: 'Cambio comite tutorial registro was successfully updated.' }
+        format.html { redirect_to @cambio_comite_tutorial_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @cambio_comite_tutorial_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CambioComiteTutorialRegistrosController < ApplicationController
   def destroy
     @cambio_comite_tutorial_registro.destroy
     respond_to do |format|
-      format.html { redirect_to cambio_comite_tutorial_registros_url, notice: 'Cambio comite tutorial registro was successfully destroyed.' }
+      format.html { redirect_to cambio_comite_tutorial_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

@@ -29,7 +29,7 @@ class RevocacionBajaRegistrosController < ApplicationController
 
     respond_to do |format|
       if @revocacion_baja_registro.save
-        format.html { redirect_to @revocacion_baja_registro, notice: 'Revocacion baja registro was successfully created.' }
+        format.html { redirect_to @revocacion_baja_registro, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @revocacion_baja_registro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class RevocacionBajaRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @revocacion_baja_registro.update(revocacion_baja_registro_params)
-        format.html { redirect_to @revocacion_baja_registro, notice: 'Revocacion baja registro was successfully updated.' }
+        format.html { redirect_to @revocacion_baja_registro, notice: 'La petición se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @revocacion_baja_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class RevocacionBajaRegistrosController < ApplicationController
   def destroy
     @revocacion_baja_registro.destroy
     respond_to do |format|
-      format.html { redirect_to revocacion_baja_registros_url, notice: 'Revocacion baja registro was successfully destroyed.' }
+      format.html { redirect_to revocacion_baja_registros_url, notice: 'La petición se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end
