@@ -1,6 +1,6 @@
 <%= form.fields_for :revocacion_baja_registros do |revocacion_baja_registros_form| %>
   <div class="form-group col-sm-10">
     <%= revocacion_baja_registros_form.label :motivacion, 'Por favor argumente brevemente su petición' %>
-    <%= revocacion_baja_registros_form.text_area :motivacion, class: 'form-control' %>
+    <%= revocacion_baja_registros_form.text_area :motivacion, class: 'form-control', minlength: '20', :required => true%>
   </div>
 <% end %>

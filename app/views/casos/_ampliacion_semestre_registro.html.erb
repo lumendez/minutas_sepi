@@ -1,6 +1,6 @@
 <%= form.fields_for :ampliacion_semestre_registros do |ampliacion_semestre_registros_form| %>
   <div class="form-group col-sm-10">
     <%= ampliacion_semestre_registros_form.label :motivacion, 'Escriba por favor el fundamento o motivacion de la petición' %>
-    <%= ampliacion_semestre_registros_form.text_area :motivacion, class: 'form-control' %>
+    <%= ampliacion_semestre_registros_form.text_area :motivacion, class: 'form-control', minlength: '20', :required => true   %>
   </div>
 <% end %>

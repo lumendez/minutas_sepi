@@ -1,6 +1,6 @@
 <%= form.fields_for :examen_obtencion_grado_registros do |examen_obtencion_grado_registros_form| %>
   <div class="form-group col-sm-10">
     <%= examen_obtencion_grado_registros_form.label :motivacion, 'Escriba por favor el fundamento o motivacion de la petición' %>
-    <%= examen_obtencion_grado_registros_form.text_area :motivacion, class: 'form-control' %>
+    <%= examen_obtencion_grado_registros_form.text_area :motivacion, class: 'form-control', minlength: '20', :required => true%>
   </div>
 <% end %>
