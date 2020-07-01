@@ -6,26 +6,31 @@ class SegundoDirectorTesisRegistrosController < ApplicationController
   # GET /segundo_director_tesis_registros.json
   def index
     @segundo_director_tesis_registros = SegundoDirectorTesisRegistro.all
+    authorize @segundo_director_tesis_registros
   end
 
   # GET /segundo_director_tesis_registros/1
   # GET /segundo_director_tesis_registros/1.json
   def show
+    @segundo_director_tesis_registro = authorize SegundoDirectorTesisRegistro.find(params[:id])
   end
 
   # GET /segundo_director_tesis_registros/new
   def new
     @segundo_director_tesis_registro = SegundoDirectorTesisRegistro.new
+    authorize @segundo_director_tesis_registro
   end
 
   # GET /segundo_director_tesis_registros/1/edit
   def edit
+    @segundo_director_tesis_registro = authorize SegundoDirectorTesisRegistro.find(params[:id])
   end
 
   # POST /segundo_director_tesis_registros
   # POST /segundo_director_tesis_registros.json
   def create
     @segundo_director_tesis_registro = SegundoDirectorTesisRegistro.new(segundo_director_tesis_registro_params)
+    authorize @segundo_director_tesis_registro
 
     respond_to do |format|
       if @segundo_director_tesis_registro.save
@@ -41,6 +46,9 @@ class SegundoDirectorTesisRegistrosController < ApplicationController
   # PATCH/PUT /segundo_director_tesis_registros/1
   # PATCH/PUT /segundo_director_tesis_registros/1.json
   def update
+    @segundo_director_tesis_registro = SegundoDirectorTesisRegistro.find(params[:id])
+    authorize @segundo_director_tesis_registro
+
     respond_to do |format|
       if @segundo_director_tesis_registro.update(segundo_director_tesis_registro_params)
         format.html { redirect_to @segundo_director_tesis_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class SegundoDirectorTesisRegistrosController < ApplicationController
   # DELETE /segundo_director_tesis_registros/1
   # DELETE /segundo_director_tesis_registros/1.json
   def destroy
+    @segundo_director_tesis_registro = SegundoDirectorTesisRegistro.find(params[:id])
+    authorize @segundo_director_tesis_registro
+    
     @segundo_director_tesis_registro.destroy
     respond_to do |format|
       format.html { redirect_to segundo_director_tesis_registros_url, notice: 'La petición se eliminó correctamente.' }

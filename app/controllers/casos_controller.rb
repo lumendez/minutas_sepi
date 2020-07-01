@@ -6,11 +6,13 @@ class CasosController < ApplicationController
   # GET /casos.json
   def index
     @casos = Caso.all
+    authorize @casos
   end
 
   # GET /casos/1
   # GET /casos/1.json
   def show
+    @caso = authorize Caso.find(params[:id])
   end
 
   # GET /casos/new
@@ -43,6 +45,7 @@ class CasosController < ApplicationController
 
   # GET /casos/1/edit
   def edit
+    @caso = authorize Caso.find(params[:id])
   end
 
   # POST /casos
@@ -50,6 +53,7 @@ class CasosController < ApplicationController
   def create
     alumno = Alumno.find_by(user_id: current_user.id)
     @caso = alumno.casos.build(caso_params)
+    authorize @caso
 
     respond_to do |format|
       if @caso.save
@@ -65,6 +69,9 @@ class CasosController < ApplicationController
   # PATCH/PUT /casos/1
   # PATCH/PUT /casos/1.json
   def update
+    @caso = Caso.find(params[:id])
+    authorize @caso
+
     respond_to do |format|
       if @caso.update(caso_params)
         format.html { redirect_to @caso, notice: 'La petición se actualizó correctamente.' }
@@ -79,6 +86,9 @@ class CasosController < ApplicationController
   # DELETE /casos/1
   # DELETE /casos/1.json
   def destroy
+    @caso = Caso.find(params[:id])
+    authorize @caso
+
     @caso.destroy
     respond_to do |format|
       format.html { redirect_to casos_url, notice: 'La petición se eliminó correctamente.' }

@@ -6,26 +6,31 @@ class SolicitudAbiertaRegistrosController < ApplicationController
   # GET /solicitud_abierta_registros.json
   def index
     @solicitud_abierta_registros = SolicitudAbiertaRegistro.all
+    authorize @solicitud_abierta_registros
   end
 
   # GET /solicitud_abierta_registros/1
   # GET /solicitud_abierta_registros/1.json
   def show
+    @solicitud_abierta_registro = authorize SolicitudAbiertaRegistro.find(params[:id])
   end
 
   # GET /solicitud_abierta_registros/new
   def new
     @solicitud_abierta_registro = SolicitudAbiertaRegistro.new
+    authorize @solicitud_abierta_registro
   end
 
   # GET /solicitud_abierta_registros/1/edit
   def edit
+    @solicitud_abierta_registro = authorize SolicitudAbiertaRegistro.find(params[:id])
   end
 
   # POST /solicitud_abierta_registros
   # POST /solicitud_abierta_registros.json
   def create
     @solicitud_abierta_registro = SolicitudAbiertaRegistro.new(solicitud_abierta_registro_params)
+    authorize @solicitud_abierta_registro
 
     respond_to do |format|
       if @solicitud_abierta_registro.save
@@ -41,6 +46,9 @@ class SolicitudAbiertaRegistrosController < ApplicationController
   # PATCH/PUT /solicitud_abierta_registros/1
   # PATCH/PUT /solicitud_abierta_registros/1.json
   def update
+    @solicitud_abierta_registro = SolicitudAbiertaRegistro.find(params[:id])
+    authorize @solicitud_abierta_registro
+
     respond_to do |format|
       if @solicitud_abierta_registro.update(solicitud_abierta_registro_params)
         format.html { redirect_to @solicitud_abierta_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class SolicitudAbiertaRegistrosController < ApplicationController
   # DELETE /solicitud_abierta_registros/1
   # DELETE /solicitud_abierta_registros/1.json
   def destroy
+    @solicitud_abierta_registro = SolicitudAbiertaRegistro.find(params[:id])
+    authorize @solicitud_abierta_registro
+    
     @solicitud_abierta_registro.destroy
     respond_to do |format|
       format.html { redirect_to solicitud_abierta_registros_url, notice: 'La petición se eliminó correctamente.' }

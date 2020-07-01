@@ -6,26 +6,31 @@ class CambioDirectorTesisRegistrosController < ApplicationController
   # GET /cambio_director_tesis_registros.json
   def index
     @cambio_director_tesis_registros = CambioDirectorTesisRegistro.all
+    authorize @cambio_director_tesis_registros
   end
 
   # GET /cambio_director_tesis_registros/1
   # GET /cambio_director_tesis_registros/1.json
   def show
+    @cambio_director_tesis_registro = authorize CambioDirectorTesisRegistro.find(params[:id])
   end
 
   # GET /cambio_director_tesis_registros/new
   def new
     @cambio_director_tesis_registro = CambioDirectorTesisRegistro.new
+    authorize @cambio_director_tesis_registro
   end
 
   # GET /cambio_director_tesis_registros/1/edit
   def edit
+    @cambio_director_tesis_registro = authorize CambioDirectorTesisRegistro.find(params[:id])
   end
 
   # POST /cambio_director_tesis_registros
   # POST /cambio_director_tesis_registros.json
   def create
     @cambio_director_tesis_registro = CambioDirectorTesisRegistro.new(cambio_director_tesis_registro_params)
+    authorize @cambio_director_tesis_registro
 
     respond_to do |format|
       if @cambio_director_tesis_registro.save
@@ -41,6 +46,9 @@ class CambioDirectorTesisRegistrosController < ApplicationController
   # PATCH/PUT /cambio_director_tesis_registros/1
   # PATCH/PUT /cambio_director_tesis_registros/1.json
   def update
+    @cambio_director_tesis_registro = CambioDirectorTesisRegistro.find(params[:id])
+    authorize @cambio_director_tesis_registro
+
     respond_to do |format|
       if @cambio_director_tesis_registro.update(cambio_director_tesis_registro_params)
         format.html { redirect_to @cambio_director_tesis_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class CambioDirectorTesisRegistrosController < ApplicationController
   # DELETE /cambio_director_tesis_registros/1
   # DELETE /cambio_director_tesis_registros/1.json
   def destroy
+    @cambio_director_tesis_registro = CambioDirectorTesisRegistro.find(params[:id])
+    authorize @cambio_director_tesis_registro
+    
     @cambio_director_tesis_registro.destroy
     respond_to do |format|
       format.html { redirect_to cambio_director_tesis_registros_url, notice: 'La petición se eliminó correctamente.' }

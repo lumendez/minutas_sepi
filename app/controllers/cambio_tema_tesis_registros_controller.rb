@@ -6,26 +6,31 @@ class CambioTemaTesisRegistrosController < ApplicationController
   # GET /cambio_tema_tesis_registros.json
   def index
     @cambio_tema_tesis_registros = CambioTemaTesisRegistro.all
+    authorize @cambio_tema_tesis_registros
   end
 
   # GET /cambio_tema_tesis_registros/1
   # GET /cambio_tema_tesis_registros/1.json
   def show
+    @cambio_tema_tesis_registro = authorize CambioTemaTesisRegistro.find(params[:id])
   end
 
   # GET /cambio_tema_tesis_registros/new
   def new
     @cambio_tema_tesis_registro = CambioTemaTesisRegistro.new
+    authorize @cambio_tema_tesis_registro
   end
 
   # GET /cambio_tema_tesis_registros/1/edit
   def edit
+    @cambio_tema_tesis_registro = authorize CambioTemaTesisRegistro.find(params[:id])
   end
 
   # POST /cambio_tema_tesis_registros
   # POST /cambio_tema_tesis_registros.json
   def create
     @cambio_tema_tesis_registro = CambioTemaTesisRegistro.new(cambio_tema_tesis_registro_params)
+    authorize @cambio_tema_tesis_registro
 
     respond_to do |format|
       if @cambio_tema_tesis_registro.save
@@ -41,6 +46,9 @@ class CambioTemaTesisRegistrosController < ApplicationController
   # PATCH/PUT /cambio_tema_tesis_registros/1
   # PATCH/PUT /cambio_tema_tesis_registros/1.json
   def update
+    @cambio_tema_tesis_registro = CambioTemaTesisRegistro.find(params[:id])
+    authorize @cambio_tema_tesis_registro
+
     respond_to do |format|
       if @cambio_tema_tesis_registro.update(cambio_tema_tesis_registro_params)
         format.html { redirect_to @cambio_tema_tesis_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class CambioTemaTesisRegistrosController < ApplicationController
   # DELETE /cambio_tema_tesis_registros/1
   # DELETE /cambio_tema_tesis_registros/1.json
   def destroy
+    @cambio_tema_tesis_registro = CambioTemaTesisRegistro.find(params[:id])
+    authorize @cambio_tema_tesis_registro
+    
     @cambio_tema_tesis_registro.destroy
     respond_to do |format|
       format.html { redirect_to cambio_tema_tesis_registros_url, notice: 'La petición se eliminó correctamente.' }

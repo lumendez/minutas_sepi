@@ -6,26 +6,31 @@ class CambioComisionRevisoraRegistrosController < ApplicationController
   # GET /cambio_comision_revisora_registros.json
   def index
     @cambio_comision_revisora_registros = CambioComisionRevisoraRegistro.all
+    authorize @cambio_comision_revisora_registros
   end
 
   # GET /cambio_comision_revisora_registros/1
   # GET /cambio_comision_revisora_registros/1.json
   def show
+    @cambio_comision_revisora_registro = authorize CambioComisionRevisoraRegistro.find(params[:id])
   end
 
   # GET /cambio_comision_revisora_registros/new
   def new
     @cambio_comision_revisora_registro = CambioComisionRevisoraRegistro.new
+    authorize @cambio_comision_revisora_registro
   end
 
   # GET /cambio_comision_revisora_registros/1/edit
   def edit
+    @cambio_comision_revisora_registro = authorize CambioComisionRevisoraRegistro.find(params[:id])
   end
 
   # POST /cambio_comision_revisora_registros
   # POST /cambio_comision_revisora_registros.json
   def create
     @cambio_comision_revisora_registro = CambioComisionRevisoraRegistro.new(cambio_comision_revisora_registro_params)
+    authorize @cambio_comision_revisora_registro
 
     respond_to do |format|
       if @cambio_comision_revisora_registro.save
@@ -41,6 +46,9 @@ class CambioComisionRevisoraRegistrosController < ApplicationController
   # PATCH/PUT /cambio_comision_revisora_registros/1
   # PATCH/PUT /cambio_comision_revisora_registros/1.json
   def update
+    @cambio_comision_revisora_registro = CambioComisionRevisoraRegistro.find(params[:id])
+    authorize @cambio_comision_revisora_registro
+
     respond_to do |format|
       if @cambio_comision_revisora_registro.update(cambio_comision_revisora_registro_params)
         format.html { redirect_to @cambio_comision_revisora_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class CambioComisionRevisoraRegistrosController < ApplicationController
   # DELETE /cambio_comision_revisora_registros/1
   # DELETE /cambio_comision_revisora_registros/1.json
   def destroy
+    @cambio_comision_revisora_registro = CambioComisionRevisoraRegistro.find(params[:id])
+    authorize @cambio_comision_revisora_registro
+    
     @cambio_comision_revisora_registro.destroy
     respond_to do |format|
       format.html { redirect_to cambio_comision_revisora_registros_url, notice: 'La petición se eliminó correctamente.' }

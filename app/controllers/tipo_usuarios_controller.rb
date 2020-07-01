@@ -6,26 +6,31 @@ class TipoUsuariosController < ApplicationController
   # GET /tipo_usuarios.json
   def index
     @tipo_usuarios = TipoUsuario.all
+    authorize @tipo_usuarios
   end
 
   # GET /tipo_usuarios/1
   # GET /tipo_usuarios/1.json
   def show
+    @tipo_usuario = authorize TipoUsuario.find(params[:id])
   end
 
   # GET /tipo_usuarios/new
   def new
     @tipo_usuario = TipoUsuario.new
+    authorize @tipo_usuario
   end
 
   # GET /tipo_usuarios/1/edit
   def edit
+    @tipo_usuario = authorize TipoUsuario.find(params[:id])
   end
 
   # POST /tipo_usuarios
   # POST /tipo_usuarios.json
   def create
     @tipo_usuario = TipoUsuario.new(tipo_usuario_params)
+    authorize @tipo_usuario
 
     respond_to do |format|
       if @tipo_usuario.save
@@ -41,6 +46,9 @@ class TipoUsuariosController < ApplicationController
   # PATCH/PUT /tipo_usuarios/1
   # PATCH/PUT /tipo_usuarios/1.json
   def update
+    @tipo_usuario = TipoUsuario.find(params[:id])
+    authorize @tipo_caso
+
     respond_to do |format|
       if @tipo_usuario.update(tipo_usuario_params)
         format.html { redirect_to @tipo_usuario, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class TipoUsuariosController < ApplicationController
   # DELETE /tipo_usuarios/1
   # DELETE /tipo_usuarios/1.json
   def destroy
+    @tipo_usuario = TipoUsuario.find(params[:id])
+    authorize @tipo_usuario
+
     @tipo_usuario.destroy
     respond_to do |format|
       format.html { redirect_to tipo_usuarios_url, notice: 'La petición se eliminó correctamente.' }

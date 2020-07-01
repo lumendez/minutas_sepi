@@ -12,6 +12,7 @@ class AgregarAsignaturaRegistrosController < ApplicationController
   # GET /agregar_asignatura_registros/1
   # GET /agregar_asignatura_registros/1.json
   def show
+    @agregar_asignatura_registro = authorize AgregarAsignaturaRegistro.find(params[:id])
   end
 
   # GET /agregar_asignatura_registros/new
@@ -22,12 +23,14 @@ class AgregarAsignaturaRegistrosController < ApplicationController
 
   # GET /agregar_asignatura_registros/1/edit
   def edit
+    @agregar_asignatura_registro = authorize AgregarAsignaturaRegistro.find(params[:id])
   end
 
   # POST /agregar_asignatura_registros
   # POST /agregar_asignatura_registros.json
   def create
     @agregar_asignatura_registro = AgregarAsignaturaRegistro.new(agregar_asignatura_registro_params)
+    authorize @agregar_asignatura_registro
 
     respond_to do |format|
       if @agregar_asignatura_registro.save
@@ -43,6 +46,9 @@ class AgregarAsignaturaRegistrosController < ApplicationController
   # PATCH/PUT /agregar_asignatura_registros/1
   # PATCH/PUT /agregar_asignatura_registros/1.json
   def update
+    @agregar_asignatura_registro = AgregarAsignaturaRegistro.find(params[:id])
+    authorize @agregar_asignatura_registro
+
     respond_to do |format|
       if @agregar_asignatura_registro.update(agregar_asignatura_registro_params)
         format.html { redirect_to @agregar_asignatura_registro, notice: 'La petición se actualizó correctamente.' }
@@ -57,6 +63,9 @@ class AgregarAsignaturaRegistrosController < ApplicationController
   # DELETE /agregar_asignatura_registros/1
   # DELETE /agregar_asignatura_registros/1.json
   def destroy
+    @agregar_asignatura_registro = AgregarAsignaturaRegistro.find(params[:id])
+    authorize @agregar_asignatura_registro
+
     @agregar_asignatura_registro.destroy
     respond_to do |format|
       format.html { redirect_to agregar_asignatura_registros_url, notice: 'La petición se eliminó correctamente.' }

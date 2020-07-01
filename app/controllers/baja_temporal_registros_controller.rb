@@ -6,26 +6,31 @@ class BajaTemporalRegistrosController < ApplicationController
   # GET /baja_temporal_registros.json
   def index
     @baja_temporal_registros = BajaTemporalRegistro.all
+    authorize @baja_temporal_registros
   end
 
   # GET /baja_temporal_registros/1
   # GET /baja_temporal_registros/1.json
   def show
+    @baja_temporal_registro = authorize BajaTemporalRegistro.find(params[:id])
   end
 
   # GET /baja_temporal_registros/new
   def new
     @baja_temporal_registro = BajaTemporalRegistro.new
+    authorize @baja_temporal_registro
   end
 
   # GET /baja_temporal_registros/1/edit
   def edit
+    @baja_temporal_registro = authorize BajaTemporalRegistro.find(params[:id])
   end
 
   # POST /baja_temporal_registros
   # POST /baja_temporal_registros.json
   def create
     @baja_temporal_registro = BajaTemporalRegistro.new(baja_temporal_registro_params)
+    authorize @baja_temporal_registro
 
     respond_to do |format|
       if @baja_temporal_registro.save
@@ -41,6 +46,9 @@ class BajaTemporalRegistrosController < ApplicationController
   # PATCH/PUT /baja_temporal_registros/1
   # PATCH/PUT /baja_temporal_registros/1.json
   def update
+    @baja_temporal_registro = BajaTemporalRegistro.find(params[:id])
+    authorize @baja_temporal_registro
+
     respond_to do |format|
       if @baja_temporal_registro.update(baja_temporal_registro_params)
         format.html { redirect_to @baja_temporal_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class BajaTemporalRegistrosController < ApplicationController
   # DELETE /baja_temporal_registros/1
   # DELETE /baja_temporal_registros/1.json
   def destroy
+    @baja_temporal_registro = BajaTemporalRegistro.find(params[:id])
+    authorize @baja_temporal_registro
+    
     @baja_temporal_registro.destroy
     respond_to do |format|
       format.html { redirect_to baja_temporal_registros_url, notice: 'La petición se eliminó correctamente.' }

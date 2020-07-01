@@ -6,26 +6,31 @@ class TipoCasosController < ApplicationController
   # GET /tipo_casos.json
   def index
     @tipo_casos = TipoCaso.all
+    authorize @tipo_casos
   end
 
   # GET /tipo_casos/1
   # GET /tipo_casos/1.json
   def show
+    @tipo_casos = authorize TipoCaso.find(params[:id])
   end
 
   # GET /tipo_casos/new
   def new
     @tipo_caso = TipoCaso.new
+    authorize @tipo_caso
   end
 
   # GET /tipo_casos/1/edit
   def edit
+    @tipo_casos = authorize TipoCaso.find(params[:id])
   end
 
   # POST /tipo_casos
   # POST /tipo_casos.json
   def create
     @tipo_caso = TipoCaso.new(tipo_caso_params)
+    authorize @tipo_caso
 
     respond_to do |format|
       if @tipo_caso.save
@@ -41,6 +46,9 @@ class TipoCasosController < ApplicationController
   # PATCH/PUT /tipo_casos/1
   # PATCH/PUT /tipo_casos/1.json
   def update
+    @tipo_caso = TipoCaso.find(params[:id])
+    authorize @tipo_caso
+
     respond_to do |format|
       if @tipo_caso.update(tipo_caso_params)
         format.html { redirect_to @tipo_caso, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class TipoCasosController < ApplicationController
   # DELETE /tipo_casos/1
   # DELETE /tipo_casos/1.json
   def destroy
+    @tipo_caso = TipoCaso.find(params[:id])
+    authorize @tipo_caso
+
     @tipo_caso.destroy
     respond_to do |format|
       format.html { redirect_to tipo_casos_url, notice: 'La petición se eliminó correctamente.' }

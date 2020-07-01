@@ -6,26 +6,31 @@ class AsignaturaRegistrosController < ApplicationController
   # GET /asignatura_registros.json
   def index
     @asignatura_registros = AsignaturaRegistro.all
+    authorize @asignatura_registros
   end
 
   # GET /asignatura_registros/1
   # GET /asignatura_registros/1.json
   def show
+    @asignatura_registro = authorize AsignaturaRegistro.find(params[:id])
   end
 
   # GET /asignatura_registros/new
   def new
     @asignatura_registro = AsignaturaRegistro.new
+    authorize @asignatura_registro
   end
 
   # GET /asignatura_registros/1/edit
   def edit
+    @asignatura_registro = authorize AsignaturaRegistro.find(params[:id])
   end
 
   # POST /asignatura_registros
   # POST /asignatura_registros.json
   def create
     @asignatura_registro = AsignaturaRegistro.new(asignatura_registro_params)
+    authorize @asignatura_registro
 
     respond_to do |format|
       if @asignatura_registro.save
@@ -41,6 +46,9 @@ class AsignaturaRegistrosController < ApplicationController
   # PATCH/PUT /asignatura_registros/1
   # PATCH/PUT /asignatura_registros/1.json
   def update
+    @asignatura_registro = AsignaturaRegistro.find(params[:id])
+    authorize @asignatura_registro
+
     respond_to do |format|
       if @asignatura_registro.update(asignatura_registro_params)
         format.html { redirect_to @asignatura_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class AsignaturaRegistrosController < ApplicationController
   # DELETE /asignatura_registros/1
   # DELETE /asignatura_registros/1.json
   def destroy
+    @asignatura_registro = AsignaturaRegistro.find(params[:id])
+    authorize @asignatura_registro
+    
     @asignatura_registro.destroy
     respond_to do |format|
       format.html { redirect_to asignatura_registros_url, notice: 'La petición se eliminó correctamente.' }

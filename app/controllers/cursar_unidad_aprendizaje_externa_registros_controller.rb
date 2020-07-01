@@ -6,26 +6,31 @@ class CursarUnidadAprendizajeExternaRegistrosController < ApplicationController
   # GET /cursar_unidad_aprendizaje_externa_registros.json
   def index
     @cursar_unidad_aprendizaje_externa_registros = CursarUnidadAprendizajeExternaRegistro.all
+    authorize @cursar_unidad_aprendizaje_externa_registros
   end
 
   # GET /cursar_unidad_aprendizaje_externa_registros/1
   # GET /cursar_unidad_aprendizaje_externa_registros/1.json
   def show
+    @cursar_unidad_aprendizaje_externa_registro = authorize CursarUnidadAprendizajeExternaRegistro.find(params[:id])
   end
 
   # GET /cursar_unidad_aprendizaje_externa_registros/new
   def new
     @cursar_unidad_aprendizaje_externa_registro = CursarUnidadAprendizajeExternaRegistro.new
+    authorize @cursar_unidad_aprendizaje_externa_registro
   end
 
   # GET /cursar_unidad_aprendizaje_externa_registros/1/edit
   def edit
+    @cursar_unidad_aprendizaje_externa_registro = authorize CursarUnidadAprendizajeExternaRegistro.find(params[:id])
   end
 
   # POST /cursar_unidad_aprendizaje_externa_registros
   # POST /cursar_unidad_aprendizaje_externa_registros.json
   def create
     @cursar_unidad_aprendizaje_externa_registro = CursarUnidadAprendizajeExternaRegistro.new(cursar_unidad_aprendizaje_externa_registro_params)
+    authorize @cursar_unidad_aprendizaje_externa_registro
 
     respond_to do |format|
       if @cursar_unidad_aprendizaje_externa_registro.save
@@ -41,6 +46,9 @@ class CursarUnidadAprendizajeExternaRegistrosController < ApplicationController
   # PATCH/PUT /cursar_unidad_aprendizaje_externa_registros/1
   # PATCH/PUT /cursar_unidad_aprendizaje_externa_registros/1.json
   def update
+    @cursar_unidad_aprendizaje_externa_registro = CursarUnidadAprendizajeExternaRegistro.find(params[:id])
+    authorize @cursar_unidad_aprendizaje_externa_registro
+
     respond_to do |format|
       if @cursar_unidad_aprendizaje_externa_registro.update(cursar_unidad_aprendizaje_externa_registro_params)
         format.html { redirect_to @cursar_unidad_aprendizaje_externa_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class CursarUnidadAprendizajeExternaRegistrosController < ApplicationController
   # DELETE /cursar_unidad_aprendizaje_externa_registros/1
   # DELETE /cursar_unidad_aprendizaje_externa_registros/1.json
   def destroy
+    @cursar_unidad_aprendizaje_externa_registro = CursarUnidadAprendizajeExternaRegistro.find(params[:id])
+    authorize @cursar_unidad_aprendizaje_externa_registro
+
     @cursar_unidad_aprendizaje_externa_registro.destroy
     respond_to do |format|
       format.html { redirect_to cursar_unidad_aprendizaje_externa_registros_url, notice: 'La petición se eliminó correctamente.' }

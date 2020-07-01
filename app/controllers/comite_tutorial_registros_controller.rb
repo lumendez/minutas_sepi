@@ -6,26 +6,31 @@ class ComiteTutorialRegistrosController < ApplicationController
   # GET /comite_tutorial_registros.json
   def index
     @comite_tutorial_registros = ComiteTutorialRegistro.all
+    authorize @comite_tutorial_registros
   end
 
   # GET /comite_tutorial_registros/1
   # GET /comite_tutorial_registros/1.json
   def show
+    @comite_tutorial_registro = authorize ComiteTutorialRegistro.find(params[:id])
   end
 
   # GET /comite_tutorial_registros/new
   def new
     @comite_tutorial_registro = ComiteTutorialRegistro.new
+    authorize @comite_tutorial_registro
   end
 
   # GET /comite_tutorial_registros/1/edit
   def edit
+    @comite_tutorial_registro = authorize ComiteTutorialRegistro.find(params[:id])
   end
 
   # POST /comite_tutorial_registros
   # POST /comite_tutorial_registros.json
   def create
     @comite_tutorial_registro = ComiteTutorialRegistro.new(comite_tutorial_registro_params)
+    authorize @comite_tutorial_registro
 
     respond_to do |format|
       if @comite_tutorial_registro.save
@@ -41,6 +46,9 @@ class ComiteTutorialRegistrosController < ApplicationController
   # PATCH/PUT /comite_tutorial_registros/1
   # PATCH/PUT /comite_tutorial_registros/1.json
   def update
+    @comite_tutorial_registro = ComiteTutorialRegistro.find(params[:id])
+    authorize @comite_tutorial_registro
+
     respond_to do |format|
       if @comite_tutorial_registro.update(comite_tutorial_registro_params)
         format.html { redirect_to @comite_tutorial_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class ComiteTutorialRegistrosController < ApplicationController
   # DELETE /comite_tutorial_registros/1
   # DELETE /comite_tutorial_registros/1.json
   def destroy
+    @comite_tutorial_registro = ComiteTutorialRegistro.find(params[:id])
+    authorize @comite_tutorial_registro
+    
     @comite_tutorial_registro.destroy
     respond_to do |format|
       format.html { redirect_to comite_tutorial_registros_url, notice: 'La petición se eliminó correctamente.' }

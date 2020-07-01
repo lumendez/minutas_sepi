@@ -6,26 +6,31 @@ class CambioMaestriaDoctoradoRegistrosController < ApplicationController
   # GET /cambio_maestria_doctorado_registros.json
   def index
     @cambio_maestria_doctorado_registros = CambioMaestriaDoctoradoRegistro.all
+    authorize @cambio_maestria_doctorado_registros
   end
 
   # GET /cambio_maestria_doctorado_registros/1
   # GET /cambio_maestria_doctorado_registros/1.json
   def show
+    @cambio_maestria_doctorado_registro = authorize CambioMaestriaDoctoradoRegistro.find(params[:id])
   end
 
   # GET /cambio_maestria_doctorado_registros/new
   def new
     @cambio_maestria_doctorado_registro = CambioMaestriaDoctoradoRegistro.new
+    authorize @cambio_maestria_doctorado_registro
   end
 
   # GET /cambio_maestria_doctorado_registros/1/edit
   def edit
+    @cambio_maestria_doctorado_registro = authorize CambioMaestriaDoctoradoRegistro.find(params[:id])
   end
 
   # POST /cambio_maestria_doctorado_registros
   # POST /cambio_maestria_doctorado_registros.json
   def create
     @cambio_maestria_doctorado_registro = CambioMaestriaDoctoradoRegistro.new(cambio_maestria_doctorado_registro_params)
+    authorize @cambio_maestria_doctorado_registro
 
     respond_to do |format|
       if @cambio_maestria_doctorado_registro.save
@@ -41,6 +46,9 @@ class CambioMaestriaDoctoradoRegistrosController < ApplicationController
   # PATCH/PUT /cambio_maestria_doctorado_registros/1
   # PATCH/PUT /cambio_maestria_doctorado_registros/1.json
   def update
+    @cambio_maestria_doctorado_registro = CambioMaestriaDoctoradoRegistro.find(params[:id])
+    authorize @cambio_maestria_doctorado_registro
+
     respond_to do |format|
       if @cambio_maestria_doctorado_registro.update(cambio_maestria_doctorado_registro_params)
         format.html { redirect_to @cambio_maestria_doctorado_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class CambioMaestriaDoctoradoRegistrosController < ApplicationController
   # DELETE /cambio_maestria_doctorado_registros/1
   # DELETE /cambio_maestria_doctorado_registros/1.json
   def destroy
+    @cambio_maestria_doctorado_registro = CambioMaestriaDoctoradoRegistro.find(params[:id])
+    authorize @cambio_maestria_doctorado_registro
+    
     @cambio_maestria_doctorado_registro.destroy
     respond_to do |format|
       format.html { redirect_to cambio_maestria_doctorado_registros_url, notice: 'La petición se eliminó correctamente.' }

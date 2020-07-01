@@ -6,26 +6,31 @@ class DirectorTesisRegistrosController < ApplicationController
   # GET /director_tesis_registros.json
   def index
     @director_tesis_registros = DirectorTesisRegistro.all
+    authorize @director_tesis_registros
   end
 
   # GET /director_tesis_registros/1
   # GET /director_tesis_registros/1.json
   def show
+    @director_tesis_registro = authorize DirectorTesisRegistro.find(params[:id])
   end
 
   # GET /director_tesis_registros/new
   def new
     @director_tesis_registro = DirectorTesisRegistro.new
+    authorize @director_tesis_registro
   end
 
   # GET /director_tesis_registros/1/edit
   def edit
+    @director_tesis_registro = authorize DirectorTesisRegistro.find(params[:id])
   end
 
   # POST /director_tesis_registros
   # POST /director_tesis_registros.json
   def create
     @director_tesis_registro = DirectorTesisRegistro.new(director_tesis_registro_params)
+    authorize @director_tesis_registro
 
     respond_to do |format|
       if @director_tesis_registro.save
@@ -41,6 +46,9 @@ class DirectorTesisRegistrosController < ApplicationController
   # PATCH/PUT /director_tesis_registros/1
   # PATCH/PUT /director_tesis_registros/1.json
   def update
+    @director_tesis_registro = DirectorTesisRegistro.find(params[:id])
+    authorize @director_tesis_registro
+
     respond_to do |format|
       if @director_tesis_registro.update(director_tesis_registro_params)
         format.html { redirect_to @director_tesis_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class DirectorTesisRegistrosController < ApplicationController
   # DELETE /director_tesis_registros/1
   # DELETE /director_tesis_registros/1.json
   def destroy
+    @director_tesis_registro = DirectorTesisRegistro.find(params[:id])
+    authorize @director_tesis_registro
+    
     @director_tesis_registro.destroy
     respond_to do |format|
       format.html { redirect_to director_tesis_registros_url, notice: 'La petición se eliminó correctamente.' }

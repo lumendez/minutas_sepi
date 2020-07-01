@@ -6,26 +6,31 @@ class RecursamientoOtraUnidadRegistrosController < ApplicationController
   # GET /recursamiento_otra_unidad_registros.json
   def index
     @recursamiento_otra_unidad_registros = RecursamientoOtraUnidadRegistro.all
+    authorize @recursamiento_otra_unidad_registros
   end
 
   # GET /recursamiento_otra_unidad_registros/1
   # GET /recursamiento_otra_unidad_registros/1.json
   def show
+    @recursamiento_otra_unidad_registro = authorize RecursamientoOtraUnidadRegistro.find(params[:id])
   end
 
   # GET /recursamiento_otra_unidad_registros/new
   def new
     @recursamiento_otra_unidad_registro = RecursamientoOtraUnidadRegistro.new
+    authorize @recursamiento_otra_unidad_registro
   end
 
   # GET /recursamiento_otra_unidad_registros/1/edit
   def edit
+    @recursamiento_otra_unidad_registro = authorize RecursamientoOtraUnidadRegistro.find(params[:id])
   end
 
   # POST /recursamiento_otra_unidad_registros
   # POST /recursamiento_otra_unidad_registros.json
   def create
     @recursamiento_otra_unidad_registro = RecursamientoOtraUnidadRegistro.new(recursamiento_otra_unidad_registro_params)
+    authorize @recursamiento_otra_unidad_registro
 
     respond_to do |format|
       if @recursamiento_otra_unidad_registro.save
@@ -41,6 +46,9 @@ class RecursamientoOtraUnidadRegistrosController < ApplicationController
   # PATCH/PUT /recursamiento_otra_unidad_registros/1
   # PATCH/PUT /recursamiento_otra_unidad_registros/1.json
   def update
+    @recursamiento_otra_unidad_registro = RecursamientoOtraUnidadRegistro.find(params[:id])
+    authorize @recursamiento_otra_unidad_registro
+
     respond_to do |format|
       if @recursamiento_otra_unidad_registro.update(recursamiento_otra_unidad_registro_params)
         format.html { redirect_to @recursamiento_otra_unidad_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class RecursamientoOtraUnidadRegistrosController < ApplicationController
   # DELETE /recursamiento_otra_unidad_registros/1
   # DELETE /recursamiento_otra_unidad_registros/1.json
   def destroy
+    @recursamiento_otra_unidad_registro = RecursamientoOtraUnidadRegistro.find(params[:id])
+    authorize @recursamiento_otra_unidad_registro
+
     @recursamiento_otra_unidad_registro.destroy
     respond_to do |format|
       format.html { redirect_to recursamiento_otra_unidad_registros_url, notice: 'La petición se eliminó correctamente.' }

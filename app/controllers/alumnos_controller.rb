@@ -6,11 +6,13 @@ class AlumnosController < ApplicationController
   # GET /alumnos.json
   def index
     @alumnos = Alumno.all
+    authorize @alumnos
   end
 
   # GET /alumnos/1
   # GET /alumnos/1.json
   def show
+    @alumno = authorize Alumno.find(params[:id])
   end
 
   # GET /alumnos/new
@@ -24,12 +26,14 @@ class AlumnosController < ApplicationController
 
   # GET /alumnos/1/edit
   def edit
+    @alumno = authorize Alumno.find(params[:id])
   end
 
   # POST /alumnos
   # POST /alumnos.json
   def create
     @alumno = current_user.alumnos.build(alumno_params)
+    authorize @alumno
 
     respond_to do |format|
       if @alumno.save
@@ -45,6 +49,9 @@ class AlumnosController < ApplicationController
   # PATCH/PUT /alumnos/1
   # PATCH/PUT /alumnos/1.json
   def update
+    @alumno = Alumno.find(params[:id])
+    authorize @alumno
+
     respond_to do |format|
       if @alumno.update(alumno_params)
         format.html { redirect_to @alumno, notice: 'La petición se actualizó correctamente.' }
@@ -59,6 +66,9 @@ class AlumnosController < ApplicationController
   # DELETE /alumnos/1
   # DELETE /alumnos/1.json
   def destroy
+    @alumno = Alumno.find(params[:id])
+    authorize @alumno
+
     @alumno.destroy
     respond_to do |format|
       format.html { redirect_to alumnos_url, notice: 'La petición se eliminó correctamente.' }

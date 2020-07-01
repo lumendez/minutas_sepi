@@ -6,26 +6,31 @@ class ComisionRevisoraRegistrosController < ApplicationController
   # GET /comision_revisora_registros.json
   def index
     @comision_revisora_registros = ComisionRevisoraRegistro.all
+    authorize @comision_revisora_registros
   end
 
   # GET /comision_revisora_registros/1
   # GET /comision_revisora_registros/1.json
   def show
+    @comision_revisora_registro = authorize ComisionRevisoraRegistro.find(params[:id])
   end
 
   # GET /comision_revisora_registros/new
   def new
     @comision_revisora_registro = ComisionRevisoraRegistro.new
+    authorize @comision_revisora_registro
   end
 
   # GET /comision_revisora_registros/1/edit
   def edit
+    @comision_revisora_registro = authorize ComisionRevisoraRegistro.find(params[:id])
   end
 
   # POST /comision_revisora_registros
   # POST /comision_revisora_registros.json
   def create
     @comision_revisora_registro = ComisionRevisoraRegistro.new(comision_revisora_registro_params)
+    authorize @comision_revisora_registro
 
     respond_to do |format|
       if @comision_revisora_registro.save
@@ -41,6 +46,9 @@ class ComisionRevisoraRegistrosController < ApplicationController
   # PATCH/PUT /comision_revisora_registros/1
   # PATCH/PUT /comision_revisora_registros/1.json
   def update
+    @comision_revisora_registro = ComisionRevisoraRegistro.find(params[:id])
+    authorize @comision_revisora_registro
+
     respond_to do |format|
       if @comision_revisora_registro.update(comision_revisora_registro_params)
         format.html { redirect_to @comision_revisora_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class ComisionRevisoraRegistrosController < ApplicationController
   # DELETE /comision_revisora_registros/1
   # DELETE /comision_revisora_registros/1.json
   def destroy
+    @comision_revisora_registro = ComisionRevisoraRegistro.find(params[:id])
+    authorize @comision_revisora_registro
+    
     @comision_revisora_registro.destroy
     respond_to do |format|
       format.html { redirect_to comision_revisora_registros_url, notice: 'La petición se eliminó correctamente.' }

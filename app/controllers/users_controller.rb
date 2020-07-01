@@ -6,26 +6,31 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    authorize @users
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = authorize User.find(params[:id])
   end
 
   # GET /users/new
   def new
     @user = User.new
+    authorize @user
   end
 
   # GET /users/1/edit
   def edit
+    @user = authorize User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    authorize @user
 
     respond_to do |format|
       if @user.save
@@ -41,6 +46,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
+    authorize @user
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = User.find(params[:id])
+    authorize @user
+    
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'La petición se eliminó correctamente.' }

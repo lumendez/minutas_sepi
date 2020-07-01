@@ -6,26 +6,31 @@ class RevocacionBajaRegistrosController < ApplicationController
   # GET /revocacion_baja_registros.json
   def index
     @revocacion_baja_registros = RevocacionBajaRegistro.all
+    authorize @revocacion_baja_registros
   end
 
   # GET /revocacion_baja_registros/1
   # GET /revocacion_baja_registros/1.json
   def show
+    @revocacion_baja_registro = authorize RevocacionBajaRegistro.find(params[:id])
   end
 
   # GET /revocacion_baja_registros/new
   def new
     @revocacion_baja_registro = RevocacionBajaRegistro.new
+    authorize @revocacion_baja_registro
   end
 
   # GET /revocacion_baja_registros/1/edit
   def edit
+    @revocacion_baja_registro = authorize RevocacionBajaRegistro.find(params[:id])
   end
 
   # POST /revocacion_baja_registros
   # POST /revocacion_baja_registros.json
   def create
     @revocacion_baja_registro = RevocacionBajaRegistro.new(revocacion_baja_registro_params)
+    authorize @revocacion_baja_registro
 
     respond_to do |format|
       if @revocacion_baja_registro.save
@@ -41,6 +46,9 @@ class RevocacionBajaRegistrosController < ApplicationController
   # PATCH/PUT /revocacion_baja_registros/1
   # PATCH/PUT /revocacion_baja_registros/1.json
   def update
+    @revocacion_baja_registro = RevocacionBajaRegistro.find(params[:id])
+    authorize @revocacion_baja_registro
+
     respond_to do |format|
       if @revocacion_baja_registro.update(revocacion_baja_registro_params)
         format.html { redirect_to @revocacion_baja_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class RevocacionBajaRegistrosController < ApplicationController
   # DELETE /revocacion_baja_registros/1
   # DELETE /revocacion_baja_registros/1.json
   def destroy
+    @revocacion_baja_registro = RevocacionBajaRegistro.find(params[:id])
+    authorize @revocacion_baja_registro
+    
     @revocacion_baja_registro.destroy
     respond_to do |format|
       format.html { redirect_to revocacion_baja_registros_url, notice: 'La petición se eliminó correctamente.' }

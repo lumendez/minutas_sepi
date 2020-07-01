@@ -6,26 +6,31 @@ class ExamenObtencionGradoRegistrosController < ApplicationController
   # GET /examen_obtencion_grado_registros.json
   def index
     @examen_obtencion_grado_registros = ExamenObtencionGradoRegistro.all
+    authorize @examen_obtencion_grado_registros
   end
 
   # GET /examen_obtencion_grado_registros/1
   # GET /examen_obtencion_grado_registros/1.json
   def show
+    @examen_obtencion_grado_registro = authorize ExamenObtencionGradoRegistro.find(params[:id])
   end
 
   # GET /examen_obtencion_grado_registros/new
   def new
     @examen_obtencion_grado_registro = ExamenObtencionGradoRegistro.new
+    authorize @examen_obtencion_grado_registro
   end
 
   # GET /examen_obtencion_grado_registros/1/edit
   def edit
+    @examen_obtencion_grado_registro = authorize ExamenObtencionGradoRegistro.find(params[:id])
   end
 
   # POST /examen_obtencion_grado_registros
   # POST /examen_obtencion_grado_registros.json
   def create
     @examen_obtencion_grado_registro = ExamenObtencionGradoRegistro.new(examen_obtencion_grado_registro_params)
+    authorize @examen_obtencion_grado_registro
 
     respond_to do |format|
       if @examen_obtencion_grado_registro.save
@@ -41,6 +46,9 @@ class ExamenObtencionGradoRegistrosController < ApplicationController
   # PATCH/PUT /examen_obtencion_grado_registros/1
   # PATCH/PUT /examen_obtencion_grado_registros/1.json
   def update
+    @examen_obtencion_grado_registro = ExamenObtencionGradoRegistro.find(params[:id])
+    authorize @examen_obtencion_grado_registro
+
     respond_to do |format|
       if @examen_obtencion_grado_registro.update(examen_obtencion_grado_registro_params)
         format.html { redirect_to @examen_obtencion_grado_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class ExamenObtencionGradoRegistrosController < ApplicationController
   # DELETE /examen_obtencion_grado_registros/1
   # DELETE /examen_obtencion_grado_registros/1.json
   def destroy
+    @examen_obtencion_grado_registro = ExamenObtencionGradoRegistro.find(params[:id])
+    authorize @examen_obtencion_grado_registro
+    
     @examen_obtencion_grado_registro.destroy
     respond_to do |format|
       format.html { redirect_to examen_obtencion_grado_registros_url, notice: 'La petición se eliminó correctamente.' }

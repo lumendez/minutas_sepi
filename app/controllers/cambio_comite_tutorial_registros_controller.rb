@@ -6,26 +6,31 @@ class CambioComiteTutorialRegistrosController < ApplicationController
   # GET /cambio_comite_tutorial_registros.json
   def index
     @cambio_comite_tutorial_registros = CambioComiteTutorialRegistro.all
+    authorize @cambio_comite_tutorial_registros
   end
 
   # GET /cambio_comite_tutorial_registros/1
   # GET /cambio_comite_tutorial_registros/1.json
   def show
+    @cambio_comite_tutorial_registro = authorize CambioComiteTutorialRegistro.find(params[:id])
   end
 
   # GET /cambio_comite_tutorial_registros/new
   def new
     @cambio_comite_tutorial_registro = CambioComiteTutorialRegistro.new
+    authorize @cambio_comite_tutorial_registro
   end
 
   # GET /cambio_comite_tutorial_registros/1/edit
   def edit
+    @cambio_comite_tutorial_registro = authorize CambioComiteTutorialRegistro.find(params[:id])
   end
 
   # POST /cambio_comite_tutorial_registros
   # POST /cambio_comite_tutorial_registros.json
   def create
     @cambio_comite_tutorial_registro = CambioComiteTutorialRegistro.new(cambio_comite_tutorial_registro_params)
+    authorize @cambio_comite_tutorial_registros
 
     respond_to do |format|
       if @cambio_comite_tutorial_registro.save
@@ -41,6 +46,9 @@ class CambioComiteTutorialRegistrosController < ApplicationController
   # PATCH/PUT /cambio_comite_tutorial_registros/1
   # PATCH/PUT /cambio_comite_tutorial_registros/1.json
   def update
+    @cambio_comite_tutorial_registro = CambioComiteTutorialRegistro.find(params[:id])
+    authorize @cambio_comite_tutorial_registro
+
     respond_to do |format|
       if @cambio_comite_tutorial_registro.update(cambio_comite_tutorial_registro_params)
         format.html { redirect_to @cambio_comite_tutorial_registro, notice: 'La petición se actualizó correctamente.' }
@@ -55,6 +63,9 @@ class CambioComiteTutorialRegistrosController < ApplicationController
   # DELETE /cambio_comite_tutorial_registros/1
   # DELETE /cambio_comite_tutorial_registros/1.json
   def destroy
+    @cambio_comite_tutorial_registro = CambioComiteTutorialRegistro.find(params[:id])
+    authorize @cambio_comite_tutorial_registro
+    
     @cambio_comite_tutorial_registro.destroy
     respond_to do |format|
       format.html { redirect_to cambio_comite_tutorial_registros_url, notice: 'La petición se eliminó correctamente.' }

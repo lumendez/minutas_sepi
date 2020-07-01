@@ -12,21 +12,25 @@ class AmpliacionSemestreRegistrosController < ApplicationController
   # GET /ampliacion_semestre_registros/1
   # GET /ampliacion_semestre_registros/1.json
   def show
+    @ampliacion_semestre_registro = authorize AmpliacionSemestreRegistro.find(params[:id])
   end
 
   # GET /ampliacion_semestre_registros/new
   def new
     @ampliacion_semestre_registro = AmpliacionSemestreRegistro.new
+    authorize @ampliacion_semestre_registro
   end
 
   # GET /ampliacion_semestre_registros/1/edit
   def edit
+    @ampliacion_semestre_registro = authorize AgregarAsignaturaRegistro.find(params[:id])
   end
 
   # POST /ampliacion_semestre_registros
   # POST /ampliacion_semestre_registros.json
   def create
     @ampliacion_semestre_registro = AmpliacionSemestreRegistro.new(ampliacion_semestre_registro_params)
+    authorize @ampliacion_semestre_registro
 
     respond_to do |format|
       if @ampliacion_semestre_registro.save
@@ -42,6 +46,9 @@ class AmpliacionSemestreRegistrosController < ApplicationController
   # PATCH/PUT /ampliacion_semestre_registros/1
   # PATCH/PUT /ampliacion_semestre_registros/1.json
   def update
+    @ampliacion_semestre_registro = AgregarAsignaturaRegistro.find(params[:id])
+    authorize @ampliacion_semestre_registro
+
     respond_to do |format|
       if @ampliacion_semestre_registro.update(ampliacion_semestre_registro_params)
         format.html { redirect_to @ampliacion_semestre_registro, notice: 'La petición se actualizó correctamente.' }
@@ -56,6 +63,9 @@ class AmpliacionSemestreRegistrosController < ApplicationController
   # DELETE /ampliacion_semestre_registros/1
   # DELETE /ampliacion_semestre_registros/1.json
   def destroy
+    @ampliacion_semestre_registro = AgregarAsignaturaRegistro.find(params[:id])
+    authorize @ampliacion_semestre_registro
+
     @ampliacion_semestre_registro.destroy
     respond_to do |format|
       format.html { redirect_to ampliacion_semestre_registros_url, notice: 'La petición se eliminó correctamente.' }
