@@ -1,7 +1,7 @@
 <%= form_with(model: recursamiento_otra_unidad_registro, local: true) do |form| %>
   <% if recursamiento_otra_unidad_registro.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(recursamiento_otra_unidad_registro.errors.count, "error") %> prohibited this recursamiento_otra_unidad_registro from being saved:</h2>
+      <h2>Los siguientes errores no permitieron que este registro se guardara:</h2>
 
       <ul>
         <% recursamiento_otra_unidad_registro.errors.full_messages.each do |message| %>

@@ -1,7 +1,7 @@
 <%= form_with(model: alumno, local: true) do |form| %>
   <% if alumno.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(alumno.errors.count, "error") %> prohibited this alumno from being saved:</h2>
+      <h2>Los siguientes errores no permitieron que este registro se guardara:</h2>
 
       <ul>
         <% alumno.errors.full_messages.each do |message| %>
@@ -10,31 +10,43 @@
       </ul>
     </div>
   <% end %>
+  <div class="card">
+      <div class="card-header">
+        <div class="row align-items-center">
+          <div class="col-8">
+            <h3 class="mb-0">Datos del alumno</h3>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pl-lg-4">
 
-  <div class="row">
-    <div class="form-group col-sm-3">
-      <%= form.label :boleta, 'Boleta' %>
-      <%= form.text_field :boleta, class:'form-control' %>
-    </div>
-  </div>
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <%= form.label :boleta, 'Boleta' %>
+              <%= form.text_field :boleta, class:'form-control' %>
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="form-group col-sm-3">
-      <%= form.label :cvu, 'CVU' %>
-      <%= form.text_field :cvu, class:'form-control' %>
-    </div>
-  </div>
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <%= form.label :cvu, 'CVU' %>
+              <%= form.text_field :cvu, class:'form-control' %>
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="form-group col-sm-4">
-      <%= form.label :programa_posgrado_registro_id, 'Programa de posgrado' %>
-      <%= collection_select(:alumno, :programa_posgrado_registro_id, ProgramaPosgradoRegistro.all.order(nombre: :asc), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
-    </div>
-  </div>
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <%= form.label :programa_posgrado_registro_id, 'Programa de posgrado' %>
+              <%= collection_select(:alumno, :programa_posgrado_registro_id, ProgramaPosgradoRegistro.all.order(nombre: :asc), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="actions col-sm-4">
-      <%= form.submit "Enviar", class: "btn btn-md btn-primary" %>
-    </div>
-  </div>
+          <div class="row">
+            <div class="actions col-sm-4">
+              <%= form.submit "Enviar", class: "btn btn-md btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
 <% end %>

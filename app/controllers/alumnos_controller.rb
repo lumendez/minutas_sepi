@@ -37,7 +37,7 @@ class AlumnosController < ApplicationController
 
     respond_to do |format|
       if @alumno.save
-        format.html { redirect_to @alumno, notice: 'La petición se guardó correctamente.' }
+        format.html { redirect_to panel_usuario_users_path, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @alumno }
       else
         format.html { render :new }

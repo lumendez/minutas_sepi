@@ -57,7 +57,7 @@ class CasosController < ApplicationController
 
     respond_to do |format|
       if @caso.save
-        format.html { redirect_to @caso, notice: 'La petición se guardó correctamente.' }
+        format.html { redirect_to panel_usuario_users_path, notice: 'La petición se guardó correctamente.' }
         format.json { render :show, status: :created, location: @caso }
       else
         format.html { render :new }

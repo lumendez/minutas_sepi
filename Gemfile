@@ -27,15 +27,20 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+# Registro de usuarios
 gem 'devise'
+# Estilos del frontend
 gem 'bootstrap'
+# JQuery para rails
 gem 'jquery-rails'
+# Tipografía de símbolos
 gem 'font_awesome5_rails'
 # Para la localización de Devise
 gem 'devise-i18n'
 # Para los permisos del sistema
 gem "pundit"
+# Para la localización en español
+gem 'rails-i18n'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

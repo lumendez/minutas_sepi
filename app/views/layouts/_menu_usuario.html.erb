@@ -1,6 +1,7 @@
             <li class="nav-item">
               <%= link_to "Inicio", panel_usuario_users_path, class:'nav-link' %>
             </li>
+            <% if Alumno.find_by(user_id: current_user.id).present? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" title="Menú constancias" href="#" id="Dropdown10" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Solicitud
@@ -9,11 +10,9 @@
                 <li>
                    <%= link_to "Soliciud al H. Colegio de profesores", new_caso_path, class:'dropdown-item' %>
                 </li>
-                <li>
-                   <a href="#" class="dropdown-item">Inscripción al semestre</a>
-                </li>
               </ul>
             </li>
+            <% end %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" title="Menú usuario" href="#" id="Dropdown13" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <strong>Hola!</strong> <%= current_user.nombre %>
