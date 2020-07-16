@@ -34,4 +34,26 @@ class Caso < ApplicationRecord
   :baja_temporal_registros, :ampliacion_semestre_registros,
   :cambio_maestria_doctorado_registros, :agregar_asignatura_registros,
   :baja_asignatura_registros
+
+  def self.validacion_cuerpo_academico(caso_ids)
+    casos = Caso.find(caso_ids)
+    casos.each do |caso|
+      caso.update_attributes(validacion_cuerpo_academico: true)
+    end
+  end
+
+  def self.validacion_asuntos_escolares(caso_ids)
+    casos = Caso.find(caso_ids)
+    casos.each do |caso|
+      caso.update_attributes(validacion_asuntos_escolares: true)
+    end
+  end
+
+  def self.validacion_colegio_profesores(caso_ids)
+    casos = Caso.find(caso_ids)
+    casos.each do |caso|
+      caso.update_attributes(validacion_colegio_profesores: true)
+    end
+  end
+
 end

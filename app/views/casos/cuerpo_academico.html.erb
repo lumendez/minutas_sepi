@@ -1,14 +1,17 @@
-<h1>Casos</h1>
+<h1>Validar casos</h1>
+<%= form_tag valida_cuerpo_academico_casos_path, method: :get do %>
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
+        <% if policy(@casos).valida_cuerpo_academico? %>
+          <th scope="col" class="sort" data-sort="name" rowspan="2"></th>
+        <% end %>
         <th scope="col" class="sort" data-sort="name" rowspan="2">Nombre</th>
         <th scope="col" class="sort" data-sort="budget" rowspan="2">Primer<br>apellido</th>
         <th scope="col" class="sort" data-sort="budget" rowspan="2">Segundo<br>apellido</th>
         <th scope="col" class="sort" data-sort="budget" rowspan="2">Boleta</th>
         <th scope="col" class="sort" data-sort="budget" rowspan="2">Tipo<br>de<br>caso</th>
         <th scope="col" class="sort" data-sort="status" colspan="3" style="text-align:center;">Validación</th>
-        <th scope="col" class="sort" data-sort="budget" colspan="3" rowspan="2">Opciones</th>
       </tr>
       <tr>
         <th>Cuerpo<br>académico</th>
@@ -20,6 +23,9 @@
     <tbody>
       <% @casos.each do |caso| %>
         <tr>
+          <% if policy(@casos).valida_cuerpo_academico? %>
+            <td><%= check_box_tag "caso_ids[]", caso.id %></td>
+          <% end %>
           <td><%= caso.alumno.user.nombre %></td>
           <td><%= caso.alumno.user.primer_apellido %></td>
           <td><%= caso.alumno.user.segundo_apellido %></td>
@@ -64,14 +70,20 @@
               <% end %>
             </span>
           </td>
-          <td><%= link_to 'Mostrar', caso %></td>
-          <td><%= link_to 'Editar', edit_caso_path(caso) %></td>
-          <td><%= link_to 'Eliminar', caso, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <% if policy(@casos).valida_cuerpo_academico? %>
+    <input type="checkbox" id="check_all" value="check_all"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+    <%= submit_tag "validar seleccionados", class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+<script>
+  $('#check_all').on("click", function(){
+    var checkboxes = $('input[type="checkbox"]');
+    checkboxes.prop("checked", !checkboxes.prop("checked"));
+  });
+</script>
 
 <br>
-
-<%= link_to 'Nuevo Caso', new_caso_path %>

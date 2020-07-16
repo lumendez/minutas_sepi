@@ -22,7 +22,16 @@ Rails.application.routes.draw do
   resources :tema_tesis_registros
   resources :programa_posgrado_registros
   resources :director_tesis_registros
-  resources :casos
+  resources :casos do
+    collection do
+      get 'valida_cuerpo_academico'
+      get 'valida_asuntos_escolares'
+      get 'valida_colegio_profesores'
+      get 'cuerpo_academico'
+      get 'asuntos_escolares'
+      get 'colegio_profesores'
+    end
+  end
   resources :tipo_casos
   resources :alumnos
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -32,6 +41,10 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get 'panel_usuario'
+      get 'panel_administrador'
+      get 'panel_cuerpo_academico'
+      get 'panel_asuntos_escolares'
+      get 'panel_colegio_profesores'
     end
   end
   resources :tipo_usuarios

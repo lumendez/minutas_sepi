@@ -85,6 +85,8 @@
           <ul class="navbar-nav">
             <% if user_signed_in? && current_user.tipo_usuario.nombre == 'Usuario' %>
               <%= render 'layouts/menu_usuario' %>
+            <% elsif user_signed_in? && current_user.tipo_usuario.nombre == 'Administrador' %>
+              <%= render 'layouts/menu_administrador' %>
             <% end %>
           </ul>
         </div>

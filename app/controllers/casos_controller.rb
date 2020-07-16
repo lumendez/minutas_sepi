@@ -96,6 +96,36 @@ class CasosController < ApplicationController
     end
   end
 
+  def cuerpo_academico
+    @casos = Caso.all
+    authorize @casos
+  end
+
+  def asuntos_escolares
+    @casos = Caso.all
+    authorize @casos
+  end
+
+  def colegio_profesores
+    @casos = Caso.all
+    authorize @casos
+  end
+
+  def valida_cuerpo_academico
+    @casos = Caso.validacion_cuerpo_academico(params[:caso_ids])
+    redirect_to cuerpo_academico_casos_path, notice: 'Los casos han sido validados correctamente.'
+  end
+
+  def valida_asuntos_escolares
+    @casos = Caso.validacion_asuntos_escolares(params[:caso_ids])
+    redirect_to asuntos_escolares_casos_path, notice: 'Los casos han sido validados correctamente.'
+  end
+
+  def valida_colegio_profesores
+    @casos = Caso.validacion_colegio_profesores(params[:caso_ids])
+    redirect_to colegio_profesores_casos_path, notice: 'Los casos han sido validados correctamente.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_caso
